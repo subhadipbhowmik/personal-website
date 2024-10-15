@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shubhadipbhowmik.vercel.app
+
+# Sitemaps
+Sitemap: https://shubhadipbhowmik.vercel.app/sitemap.xml
