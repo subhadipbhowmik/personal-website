@@ -13,7 +13,8 @@ const nextConfig = {
       'linkedin.com',
       'ibm.com',
       'edx.com',
-      'media.dev.to'
+      'media.dev.to',
+      'res.cloudinary.com'
     ]
   },
 };
