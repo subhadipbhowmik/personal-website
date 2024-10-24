@@ -8,6 +8,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Twitter, Linkedin, Mail } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faLinkedin, faXTwitter, faWhatsapp, faReddit, faTelegram, faPinterest } from '@fortawesome/free-brands-svg-icons';
 
 
 export async function generateMetadata({
@@ -28,7 +30,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     imageUrl,
-    tags
+    tags,
   } = post.metadata;
 
   let ogImage = imageUrl
@@ -57,7 +59,7 @@ export async function generateMetadata({
       images: [ogImage],
     },
     // Additional SEO meta tags
-    keywords: tags.join(', '), // Use blog tags as keywords
+    keywords: tags.join(", "), // Use blog tags as keywords
     robots: "index, follow", // Allow search engine bots to index and follow links
   };
 }
@@ -101,8 +103,8 @@ export default async function Blog({
               name: "Your Blog Name",
               logo: {
                 "@type": "ImageObject",
-                url: "https://your-site-url/logo.png" // Include the logo for the publisher
-              }
+                url: "https://your-site-url/logo.png", // Include the logo for the publisher
+              },
             },
             mainEntityOfPage: {
               "@type": "WebPage",
@@ -112,7 +114,7 @@ export default async function Blog({
         }}
       />
 
-      <Link href={'/blog'}>
+      <Link href={"/blog"}>
         <Button className="mb-2">
           Back
           <ChevronLeft />
@@ -132,70 +134,91 @@ export default async function Blog({
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}
-      >
-      </article>
+      ></article>
 
       {/* show all tags  */}
       {/* show all tags  */}
-{/* show all tags  */}
-<div className="mt-auto flex flex-col">
-  {post.metadata.tags && post.metadata.tags.length > 0 && (
-    <div className="mt-2 flex flex-wrap gap-2">
-      {post.metadata.tags.map((tag: string, index: number) => (
-        <span
-          key={tag}
-          className={`px-2 py-1 text-sm rounded ${
-            index % 2 === 0
-              ? "bg-[#22C55E] text-white"
-              : "bg-[#6366F1] text-white"
-          }`}
+      {/* show all tags  */}
+      <div className="mt-auto flex flex-col">
+        {post.metadata.tags && post.metadata.tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {post.metadata.tags.map((tag: string, index: number) => (
+              <span
+                key={tag}
+                className={`px-2 py-1 text-sm rounded ${index % 2 === 0
+                  ? "bg-[#22C55E] text-white"
+                  : "bg-[#6366F1] text-white"
+                  }`}
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Social media sharing buttons */}
+      <div className="mt-4 flex items-center space-x-4">
+        <a
+          href={`https://twitter.com/intent/tweet?url=${DATA.url}/blog/${post.slug}&text=${encodeURIComponent(post.metadata.title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex p-2 items-center justify-center w-10 h-10 rounded border-black hover:bg-black bg-black transition duration-200"
+          aria-label="Share on Twitter"
         >
-          #{tag}
-        </span>
-      ))}
-    </div>
-  )}
-</div>
+          <FontAwesomeIcon icon={faXTwitter} size="lg" className="text-white" />
+        </a>
 
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex p-2 items-center justify-center w-10 h-10 text-white rounded bg-blue-700 hover:bg-blue-800 transition duration-200"
+          aria-label="Share on LinkedIn"
+        >
+          <FontAwesomeIcon icon={faLinkedin} size="lg" className="text-white" />
+        </a>
 
+        <a
+          href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.metadata.title)}%20${DATA.url}/blog/${post.slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex p-2 items-center justify-center w-10 h-10 rounded bg-green-500 text-white transition duration-200"
+          aria-label="Share on WhatsApp"
+        >
+          <FontAwesomeIcon icon={faWhatsapp} />
+        </a>
 
-{/* Social media sharing buttons */}
-{/* Social media sharing buttons */}
-<div className="mt-4 flex items-center space-x-4">
-<span className="text-sm text-blue-600 font-bold animate-bounce">Share:</span>
-  <a
-    href={`https://twitter.com/intent/tweet?url=${DATA.url}/blog/${post.slug}&text=${encodeURIComponent(post.metadata.title)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500 hover:bg-blue-500 hover:text-white transition duration-200"
-    aria-label="Share on Twitter"
-  >
-    <Twitter size={20} />
-  </a>
+        <a
+          href={`https://www.reddit.com/submit?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&title=${encodeURIComponent(post.metadata.title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex p-2 items-center justify-center w-10 h-10 rounded bg-orange-500 text-white transition duration-200"
+          aria-label="Share on Reddit"
+        >
+          <FontAwesomeIcon icon={faReddit} size="lg" className="text-white" />
+        </a>
 
+        <a
+          href={`https://t.me/share/url?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&text=${encodeURIComponent(post.metadata.title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center p-2 justify-center w-10 h-10 rounded bg-blue-600 text-white transition duration-200"
+          aria-label="Share on Telegram"
+        >
+          <FontAwesomeIcon icon={faTelegram} size="lg" className="text-white" />
+        </a>
 
-  <a
-    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center w-10 h-10 rounded-full border border-blue-700 hover:bg-blue-700 hover:text-white transition duration-200"
-    aria-label="Share on LinkedIn"
-  >
-    <Linkedin size={20} />
-  </a>
-
-  <a
-    href={`mailto:?subject=${encodeURIComponent(post.metadata.title)}&body=${encodeURIComponent(`Check out this blog post: ${DATA.url}/blog/${post.slug}`)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-800 hover:bg-gray-800 hover:text-white transition duration-200"
-    aria-label="Share via Email"
-  >
-    <Mail size={20} />
-  </a>
-</div>
-
-
+        <a
+          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&media=${post.metadata.imageUrl}&description=${encodeURIComponent(post.metadata.title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex p-2 items-center justify-center w-10 h-10 rounded bg-red-600 text-white transition duration-200"
+          aria-label="Share on Pinterest"
+        >
+          <FontAwesomeIcon icon={faPinterest} size="lg" className="text-white" />
+        </a>
+      </div>
 
     </section>
   );

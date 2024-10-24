@@ -66,89 +66,71 @@
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
-  /* Global styles */
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
   }
-
-  h3 code {
-    @apply !text-lg md:!text-xl;
-  }
-
-  /* Modern style for code blocks */
-  pre {
-    @apply bg-gray-100 dark:bg-gray-900 rounded-lg overflow-x-auto py-4 px-6 border border-gray-300 dark:border-gray-700 shadow-md transition duration-300 ease-in-out;
-  }
-
-  /* Code text styles */
-  code {
-    @apply text-sm md:text-base leading-relaxed text-[#6366F1] dark:text-[#FBBF24] font-mono; /* #FBBF24 for dark mode */
-  }
-
-  /* Highlighted syntax styles */
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    @apply text-gray-500; /* Softer color for comments */
-  }
-
-  .token.punctuation {
-    @apply text-gray-600; /* Darker punctuation */
-  }
-
-  .token.selector,
-  .token.attr-name {
-    @apply text-[#6366F1]; /* Using #6366F1 for selectors */
-  }
-
-  .token.property {
-    @apply text-[#6366F1]; /* Using #6366F1 for properties */
-  }
-
-  .token.function {
-    @apply text-[#6366F1]; /* Using #6366F1 for functions */
-  }
-
-  .token.variable {
-    @apply text-[#6366F1]; /* Using #6366F1 for variables */
-  }
-
-  .token.string {
-    @apply text-[#6366F1]; /* Using #6366F1 for strings */
-  }
-
-  /* Line numbering styles */
-  pre > code {
-    counter-reset: line;
-  }
-
-  code[data-line-numbers] {
-    counter-reset: line;
-  }
-
-  code[data-line-numbers] > [data-line]::before {
-    counter-increment: line;
-    content: counter(line);
-    @apply inline-block w-6 mr-4 text-right text-gray-600 dark:text-gray-400;
-  }
-
-  /* Responsive width for line numbers */
-  code[data-line-numbers-max-digits="2"] > [data-line]::before {
-    width: 2rem;
-  }
-
-  code[data-line-numbers-max-digits="3"] > [data-line]::before {
-    width: 3rem;
-  }
 }
 
+/* Heading Styles */
+h3 code {
+  @apply !text-lg md:!text-xl; /* Responsive text sizes */
+}
+
+/* Modern style for code blocks */
+pre {
+  @apply bg-gray-100 dark:bg-gray-900 rounded-lg overflow-x-auto py-4 px-6 border border-gray-300 dark:border-gray-700 shadow-md transition duration-300 ease-in-out;
+}
+
+/* Code text styles */
+code {
+  @apply text-sm md:text-base leading-relaxed text-[#6366F1] dark:text-[#FBBF24] font-mono; /* #FBBF24 for dark mode */
+}
+
+/* Highlighted syntax styles */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-gray-500; /* Softer color for comments */
+}
+
+.token.punctuation {
+  @apply text-gray-600; /* Darker punctuation */
+}
+
+.token.selector,
+.token.attr-name,
+.token.property,
+.token.function,
+.token.variable,
+.token.string {
+  @apply text-[#6366F1]; /* Using #6366F1 for selectors, properties, etc. */
+}
+
+/* Line numbering styles */
+pre > code {
+  counter-reset: line; /* Resetting line counter for preformatted code */
+}
+
+code[data-line-numbers] {
+  counter-reset: line; /* Reset line counter for numbered lines */
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line; /* Increment line counter */
+  content: counter(line); /* Display line number */
+  @apply inline-block w-6 mr-4 text-right text-gray-600 dark:text-gray-400; /* Styling for line numbers */
+}
+
+/* Responsive width for line numbers */
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 2rem; /* Adjust width for double digit numbers */
+}
+
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 3rem; /* Adjust width for triple digit numbers */
+}
