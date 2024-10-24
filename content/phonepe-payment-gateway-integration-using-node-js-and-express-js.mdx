@@ -1,5 +1,5 @@
 ---
-title: "Integrating PhonePe Payment Gateway with Node.js and Express.js"
+title: "PhonePe Payment Gateway Integration using React, Node, Express"
 publishedAt: "2024-10-23"
 summary: "Complete step-by-step guide on how to integrate PhonePe payment gateway with Node and Express as Backend and React in Frontend"
 imageUrl: "/blog/phonepe/phonepe-payment-gateway-integration.png"
@@ -7,6 +7,8 @@ tags: ['api', 'payment-gateway', 'nodejs', 'expressjs']
 ---
 
 In this simple step-by-step guide, we will learn how to integrate the PhonePe payment gateway with Node and Express as the backend and React in the frontend. After reading this guide, you will be able to integrate the PhonePe payment gateway effectively. All the steps are very simple and easy to follow.
+
+![Phone Pe Payment Integration](/blog/phonepe/phonepe-payment-integration.gif "Phone Pe Payment Integration")
 
 ## Project Setup
 
@@ -21,9 +23,15 @@ Now let's set up our project. First, create a folder with any name. For this tut
 - client
 - server
 
+Before starting the coding part lets try to understand the phone pe payment gateway api flow. For making it clear I have created this API Flow diagram.
+
+![Phone Pe API Flow](/blog/phonepe/phonepe-data-flow.png "Phone Pe API Flow")
+
+User will fill the data like name, mobile, amount. Then it will hit our server api end point. Then our server will will send a request to the phone pe api end point. Which will send back the status of payment. Which we will get in server response then again wi will send the response to the client.
+
 ## Frontend Setup
 
-For this tutorial, I am reusing React as the frontend library, and for styling, I have used Tailwind CSS. Now click on the client folder and open the terminal. To install React, run this command:
+For this tutorial, I am using React as the frontend library, and for styling, I have used Tailwind CSS. Now click on the client folder and open the terminal. To install React, run this command:
 
 ```bash
 npm create vite@latest .
@@ -308,6 +316,277 @@ const Payment = () => {
 export default Payment;
 ```
 
-Now you are done with the design part. Now create the routes. 
+Now you are done with the design part. Now create the routes for frontend. 
 
 ```jsx
+import './App.css'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Payment from './components/Payment'
+import { Routes, Route } from 'react-router-dom'
+import Success from './components/Success'
+
+function App() {
+  return (
+    <>
+      <Header />
+      {/* Uncomment Hero if needed */}
+      <Hero />
+      <Payment />
+      <Routes>
+        <Route path="/success" element={<Success />} />
+      </Routes>
+    </>
+  )
+}
+
+export default App
+```
+
+**Main.jsx**
+
+```jsx
+import { createRoot } from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { BrowserRouter } from 'react-router-dom'
+
+createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+)
+```
+
+Now frontend is complete. Now we will create our backend with Node and Express. Go open `server` folder and create a new file named `server.js`. Then run this command to initialize the npm.
+
+```bash
+npm init
+```
+
+keep everything as default. In  `package.json` file, make some update.
+```json
+"main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+```
+
+Now for this project we will need some dependencies. So run the following command to install. Make sure you are in `server` folder.
+
+
+1. `express` => to create server
+2. `nodemon` => to run server without refreshing page
+3. `axios` => to make http requests
+4. `cors` => to allow cross-origin requests
+5. `crypto` => for hashing
+
+```bash
+npm i express nodemon axios cors crypto
+```
+
+Now open `server.js` and add the following code. Before you start coding open this page of phonepe developer page for more details. [Phone Pe API Guide](https://developer.phonepe.com/v1/reference/pay-api/)
+
+Now write the code. Then we will understand our code line by line.
+```js
+const express = require('express');
+const cors = require('cors');
+const crypto = require('crypto');
+const axios = require('axios');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+let SALT_KEY = '96434309-7796-489d-8924-ab56988a6076';
+let MERCHANT_ID = 'PGTESTPAYUAT86';
+
+app.post('/payment', async(req, res) => {
+    try {
+        // get data provided by client
+        let {
+            name,
+            mobile,
+            amount,
+            MUID,
+            transactionId
+        } = req.body;
+
+        const data = {
+            merchantId: MERCHANT_ID,
+            merchantTransactionId: transactionId,
+            name: name,
+            mobile: mobile,
+            amount: amount * 100,
+            SALT_KEY: SALT_KEY,
+            MUID: MUID,
+            redirectUrl: `http://localhost:8000/status?id=${transactionId}`,
+            redirectMode: 'POST',
+            mobileNumber: mobile,
+            paymentInstrument:{
+                type: 'PAY_PAGE',
+            }
+        };
+
+        const keyIndex = 1;
+        const payLoad = JSON.stringify(data);
+        const payLoadMain = Buffer.from(payLoad).toString('base64');
+
+        const string = payLoadMain + '/pg/v1/pay' + SALT_KEY;
+
+        const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+        const checkSum = sha256 + '###' + keyIndex;
+
+        const PROD_URL = 'https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay';
+
+        const options = {
+            method: 'POST',
+            url: PROD_URL,
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-VERIFY': checkSum
+            },
+            data: {
+                request: payLoadMain
+            }
+        };
+
+        await axios(options)
+            .then((response) => {
+                res.json(response.data);
+            })
+            .catch((error) => {
+                res.status(500).json({
+                    error: error
+                });
+            });
+
+        
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// get status of payment
+app.post('/status', async (req, res) => {
+    try {
+        const merchantTransactionId = req.query.id; // Use query params if sent via query
+        const merchantId = MERCHANT_ID;
+
+        const keyIndex = 1;
+        const string = `/pg/v1/status/${merchantId}/${merchantTransactionId}` + SALT_KEY;
+        const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+        const checkSum = sha256 + '###' + keyIndex;
+
+        const options = {
+            method: 'GET',
+            url: `https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/status/${merchantId}/${merchantTransactionId}`,
+            headers: {
+                accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-VERIFY': checkSum,
+                'X-MERCHANT-ID': merchantId
+            }
+        };
+
+        await axios(options)
+            .then((response) => {
+                if (response.data.success === true) {
+                    const url = 'http://localhost:5173/success';
+                    return res.redirect(url);
+                } else {
+                    return res.json(response.data);
+                }
+            })
+            .catch((error) => {
+                res.status(500).json({
+                    error: error
+                });
+            });
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+app.listen(8000, () => {
+    console.log('Server started on port 8000');
+});
+```
+
+Now run this command to start the server. Then you will be able to see the response in your browser.
+
+```bash
+npm run start
+```
+
+To check the status of our server open `http://localhost:8000/`. It will show you `Hello World!`. It means our server is up and running. To test our payment gateway, go to `http://localhost:5173/` or the client port. and fill the details like name, mobile, amount. If you have implemented the payment gateway correctly as described then it will redirect you to **Phone Pay Payment Page**. Now to test phone pe payment use dummy bedit card provided by phone pe.
+
+**Debit Card**
+```text
+“card_number”: “4242424242424242”,
+“card_type”: “DEBIT_CARD”,
+“card_issuer”: “VISA”,
+“expiry_month”: 12,
+“expiry_year”: 2023,
+“cvv”: “936”
+```
+**Credit Card**
+```text
+“card_number”: “4208585190116667”,
+“card_type”: “CREDIT_CARD”,
+“card_issuer”: “VISA”,
+“expiry_month”: 06,
+“expiry_year”: 2027,
+“cvv”: “508”
+```
+
+> **NOTE** : The OTP to be used on the Bank Page: 123456
+
+If your payment is successful, it will redirect you to **Success Page**.
+
+## Understand the Backend Logic
+
+**/payment route**
+1. Get data from frontend using `req.body`
+2. Store data in `data` named variable. (which will be send to phone pe server using api)
+3. Generate the payLoad and checkSum using this code
+```javascript
+const keyIndex = 1;
+const payLoad = JSON.stringify(data);
+const payLoadMain = Buffer.from(payLoad).toString('base64');
+const string = payLoadMain + '/pg/v1/pay' + SALT_KEY;
+const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+const checkSum = sha256 + '###' + keyIndex;
+ ```
+4. Make a post request to phone pe server using axios
+5. Return response to frontend
+
+**/status route**
+1. Get data from frontend using `req.query`
+2. Store data in `data` named variable. (which will be send to phone pe server using api)
+3. Generate the payLoad and checkSum using this code
+```javascript
+const keyIndex = 1;
+const payLoad = JSON.stringify(data);
+const payLoadMain = Buffer.from(payLoad).toString('base64');
+const string = payLoadMain + '/pg/v1/status/' + MERCHANT_ID + '/' + merchantTransactionId + SALT_KEY;
+const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+const checkSum = sha256 + '###' + keyIndex;
+```
+4. Make a get request to phone pe server using axios
+5. Return response to frontend
+
+Congratulations! You have completed the tutorial. I hope it has helped you in understanding the PhonePe payment gateway integration. If you have any questions or suggestions, please don't hesitate to contact me. I'm here to help you!
+
+For more insights on React and other web development topics, follow me for updates. [shubhadipbhowmik](https://shubhadip.bio.link/)
+
+![shubhadip bhowmik](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ld0p3gepsury0nh9hi34.png)
