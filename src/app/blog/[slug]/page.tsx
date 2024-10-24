@@ -141,7 +141,7 @@ export default async function Blog({
 <div className="mt-auto flex flex-col">
   {post.metadata.tags && post.metadata.tags.length > 0 && (
     <div className="mt-2 flex flex-wrap gap-2">
-      {post.metadata.tags.map((tag, index) => (
+      {post.metadata.tags.map((tag: string, index: number) => (
         <span
           key={tag}
           className={`px-2 py-1 text-sm rounded ${
