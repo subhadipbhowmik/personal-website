@@ -132,7 +132,32 @@ export default async function Blog({
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
+      >
+      </article>
+
+      {/* show all tags  */}
+      {/* show all tags  */}
+{/* show all tags  */}
+<div className="mt-auto flex flex-col">
+  {post.metadata.tags && post.metadata.tags.length > 0 && (
+    <div className="mt-2 flex flex-wrap gap-2">
+      {post.metadata.tags.map((tag, index) => (
+        <span
+          key={tag}
+          className={`px-2 py-1 text-sm rounded ${
+            index % 2 === 0
+              ? "bg-[#22C55E] text-white"
+              : "bg-[#6366F1] text-white"
+          }`}
+        >
+          #{tag}
+        </span>
+      ))}
+    </div>
+  )}
+</div>
+
+
 
 {/* Social media sharing buttons */}
 {/* Social media sharing buttons */}

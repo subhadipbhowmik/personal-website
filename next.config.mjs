@@ -1,5 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import NextMdx from '@next/mdx';
+
+const withMDX = NextMdx({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+  },
+});
+
+const nextConfig = withMDX({
   reactStrictMode: true,
   trailingSlash: true,
   images: {
@@ -14,9 +22,10 @@ const nextConfig = {
       'ibm.com',
       'edx.com',
       'media.dev.to',
-      'res.cloudinary.com'
-    ]
+      'res.cloudinary.com',
+    ],
   },
-};
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'], // Include MDX file extensions
+});
 
 export default nextConfig;

@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I am a B.C.A student at Chandigarh University, with a passion for technology. I am an Android and Frontend Web Developer. I write blogs, design UI/Mockups, and Contributing to open-source projects. I have accomplished [certification](/certifications)",
+    "I am a B.C.A student at Chandigarh University, with a passion for technology. I am an Android and Frontend Web Developer. I write blogs, design UI/Mockups, and Contributing to open-source projects. I have accomplished [certification](/certifications). Here is a short story of [my journey](/my-journey)",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
@@ -43,6 +43,8 @@ export const DATA = {
   tutorialsDesc: "Sharing knowledge and skills through tutorials is my passion, and I enjoy creating them.",
   profile: "Let's Connect",
   profileDesc: "Join me on this journey where we share ideas, learn together, and inspire each other.",
+  journey: "My Journey",
+  journeyDesc: "Here is a little story of my life journey.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },

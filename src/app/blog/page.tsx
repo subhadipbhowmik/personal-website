@@ -133,7 +133,7 @@ export default async function BlogPage() {
                           variant="outline"
                           key={tag}
                         >
-                          # {tag}
+                          #{tag}
                         </Badge>
                       ))}
                     </div>
