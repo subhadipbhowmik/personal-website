@@ -3,7 +3,7 @@ title: "Integrating PhonePe Payment Gateway with Node.js and Express.js"
 publishedAt: "2024-10-23"
 summary: "Complete step-by-step guide on how to integrate PhonePe payment gateway with Node and Express as Backend and React in Frontend"
 imageUrl: "/blog/phonepe/phonepe-payment-gateway-integration.png"
-tags: ["api", "payment-gateway", "nodejs", "expressjs"]
+tags: ['api', 'payment-gateway', 'nodejs', 'expressjs']
 ---
 
 In this simple step-by-step guide, we will learn how to integrate the PhonePe payment gateway with Node and Express as the backend and React in the frontend. After reading this guide, you will be able to integrate the PhonePe payment gateway effectively. All the steps are very simple and easy to follow.
@@ -25,12 +25,289 @@ Now let's set up our project. First, create a folder with any name. For this tut
 
 For this tutorial, I am reusing React as the frontend library, and for styling, I have used Tailwind CSS. Now click on the client folder and open the terminal. To install React, run this command:
 
+```bash
+npm create vite@latest .
+```
+> Use . after vite@latest so that it will install the React in the current directory (client).
 
+Then select **React** as framework and **Javascript** as language.
 
-```javascript
-import React from 'react';
+### Install Tailwind CSS
+Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files.
 
-function HelloWorld() {
-  return <div>Hello, World!</div>;
+**Run these commands**
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+**Configure your template paths**
+Update the `tailwind.config.js` file with the following code:
+```text
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
 ```
+
+**Update `index.css` to use Tailwind CSS**
+```text
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+**Update App.jsx**
+```jsx
+export default function App() {
+  return (
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+  )
+}
+```
+
+**Run Frontend**
+
+```bash
+npm run dev
+```
+
+In this way you will be able to see the React application in your browser.
+
+## Frontend Designing
+
+Now we are ready to design our frontend. To keep it simple we will create a form with 3 basic fields for taking users name, mobile, amount. Because will more focus on the backend.
+
+Ok before designing the pages we need some dependencies. So let's install dependencies for React.
+
+1. axios => To make HTTP requests
+2. react-router-dom => To handle routing
+
+To install these dependencies, run the following command:
+```bash
+npm install axios react-router-dom
+```
+
+**Create Some Files**
+
+/src/components/Header.jsx
+
+```jsx
+import React from 'react';
+
+const Header = () => {
+  return (
+    <header className="bg-blue-600 text-white shadow-lg">
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <h1 className="text-2xl font-bold">My Website</h1>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <a href="#home" className="hover:text-gray-200">Home</a>
+            </li>
+            <li>
+              <a href="#about" className="hover:text-gray-200">About</a>
+            </li>
+            <li>
+              <a href="#services" className="hover:text-gray-200">Services</a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:text-gray-200">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+```
+
+/src/components/Hero.jsx
+
+```jsx
+import React from 'react';
+
+const Hero = () => {
+  return (
+    <section className="bg-gray-100">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-12 px-4">
+        {/* Left side: Hero text */}
+        <div className="text-center md:text-left md:w-1/2">
+          <h1 className="text-4xl font-bold text-blue-600">
+            Seamless Payments with PhonePe
+          </h1>
+          <p className="mt-4 text-gray-700">
+            Simplify your transactions with easy integration of PhonePe in your platform. Experience fast, secure, and reliable payments for your business or app.
+          </p>
+          <a
+            href="#learn-more"
+            className="inline-block mt-6 bg-blue-600 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-500"
+          >
+            Learn More
+          </a>
+        </div>
+
+        {/* Right side: Image */}
+        <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
+          <img
+            src="https://www.phonepe.com/webstatic/8220/static/8470cfd6cd867c1ebeb64ed00084ff4b/063af/investment-desktop.png" // Placeholder image, replace with an actual graphic
+            alt="PhonePe Integration"
+            className="w-[300px] h-auto"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+```
+
+/src/components/Payment.jsx
+
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const Payment = () => {
+  const [name, setName] = useState('SHUBHADIP BHOWMIK');
+  const [mobile, setMobile] = useState('7550814404');
+  const [amount, setAmount] = useState('1');
+  const [loading, setLoading] = useState(false);
+
+  // Handle each input separately
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleMobileChange = (e) => {
+    setMobile(e.target.value);
+  };
+
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
+
+  // Handle form submission
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    setLoading(true);
+    const data = {
+      name,
+      mobile,
+      amount,
+      MUID: "MUID" + Date.now(),
+      transactionId: "TID" + Date.now(),
+    };
+
+    await axios.post('http://localhost:8000/payment', data)
+      .then((response) => {
+        if(response.data && response.data.data.instrumentResponse.redirectInfo.url) {
+          window.location.href = response.data.data.instrumentResponse.redirectInfo.url
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
+
+  return (
+    <section className="bg-gray-100">
+      <div className="container mx-auto flex flex-col items-center py-12 px-4">
+        {/* Hero Section */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-blue-600">
+            Seamless Payments with PhonePe
+          </h1>
+          <p className="mt-4 text-gray-700">
+            Simplify your transactions with PhonePe. Enter your details to complete the payment.
+          </p>
+        </div>
+
+        {/* Form Section */}
+        <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+          <form onSubmit={handleSubmit}>
+            {/* Name Input */}
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={handleNameChange}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            {/* Mobile Input */}
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="mobile">
+                Mobile Number
+              </label>
+              <input
+                type="tel"
+                id="mobile"
+                value={mobile}
+                onChange={handleMobileChange}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your mobile number"
+                required
+              />
+            </div>
+
+            {/* Amount Input */}
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amount">
+                Amount
+              </label>
+              <input
+                type="number"
+                id="amount"
+                value={amount}
+                onChange={handleAmountChange}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter amount"
+                required
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-500"
+              >
+                {loading ? 'Processing...' : 'Pay Now'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Payment;
+```
+
+Now you are done with the design part. Now create the routes. 
+
+```jsx

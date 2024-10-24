@@ -69,6 +69,9 @@
 @layer base {
   * {
     @apply border-border;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   body {
     @apply bg-background text-foreground;
@@ -82,7 +85,7 @@ h3 code {
 
 /* Modern style for code blocks */
 pre {
-  @apply bg-gray-100 dark:bg-gray-900 rounded-lg overflow-x-auto py-4 px-6 border border-gray-300 dark:border-gray-700 shadow-md transition duration-300 ease-in-out;
+  @apply bg-gray-100 dark:bg-gray-900 overflow-x-auto py-4 px-8 border border-gray-300 dark:border-gray-700 shadow-md transition duration-300 ease-in-out;
 }
 
 /* Code text styles */

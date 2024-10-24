@@ -30,7 +30,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     imageUrl,
-    tags,
+    tags = [], // Ensure tags is always an array
   } = post.metadata;
 
   let ogImage = imageUrl
@@ -59,10 +59,11 @@ export async function generateMetadata({
       images: [ogImage],
     },
     // Additional SEO meta tags
-    keywords: tags.join(", "), // Use blog tags as keywords
+    keywords: Array.isArray(tags) ? tags.join(", ") : "shubhadip", // Handle case where tags might not be an array
     robots: "index, follow", // Allow search engine bots to index and follow links
   };
 }
+
 
 export default async function Blog({
   params,
