@@ -70,6 +70,11 @@ export default function RootLayout({
           name="google-site-verification"
           content="zO0OXZHRp2b6W2AjxYtvGn97FFaUcVkyB_I0yn3ydGc"
         />
+         <script 
+    type="text/javascript" 
+    src="https://platform-api.sharethis.com/js/sharethis.js#property=67231db2f9d5250012f5d9c5&product=inline-reaction-buttons&source=platform" 
+    async 
+  ></script>
       </Head>
       <body
         className={cn(

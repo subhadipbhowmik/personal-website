@@ -43,6 +43,7 @@
     "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
+    "sharethis-reactjs": "^1.6.0",
     "shiki": "^1.22.0",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",

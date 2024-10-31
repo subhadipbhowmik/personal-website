@@ -1,3 +1,5 @@
+// src/app/blog/[slug]/page.tsx
+
 import { Button } from "@/components/ui/button";
 import { getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
@@ -7,10 +9,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { Twitter, Linkedin, Mail } from "lucide-react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin, faXTwitter, faWhatsapp, faReddit, faTelegram, faPinterest } from '@fortawesome/free-brands-svg-icons';
-
+import InlineReactionButtons from "@/components/InlineReactionButtons"; // Import the new Client Component
 
 export async function generateMetadata({
   params,
@@ -64,7 +65,6 @@ export async function generateMetadata({
   };
 }
 
-
 export default async function Blog({
   params,
 }: {
@@ -77,6 +77,9 @@ export default async function Blog({
   if (!post) {
     notFound();
   }
+
+  // Construct the current URL for the reaction buttons
+  const currentUrl = `${DATA.url}/blog/${post.slug}`;
 
   return (
     <section id="blog" className="pb-12">
@@ -137,8 +140,9 @@ export default async function Blog({
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
 
-      {/* show all tags  */}
-      {/* show all tags  */}
+      {/* emoji reaction  */}
+      <InlineReactionButtons url={currentUrl} /> {/* Pass the current URL as prop */}
+
       {/* show all tags  */}
       <div className="mt-auto flex flex-col">
         {post.metadata.tags && post.metadata.tags.length > 0 && (
@@ -220,7 +224,6 @@ export default async function Blog({
           <FontAwesomeIcon icon={faPinterest} size="lg" className="text-white" />
         </a>
       </div>
-
     </section>
   );
 }
