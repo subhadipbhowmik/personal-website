@@ -1,5 +1,3 @@
-// src/app/blog/[slug]/page.tsx
-
 import { Button } from "@/components/ui/button";
 import { getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
@@ -141,7 +139,11 @@ export default async function Blog({
       ></article>
 
       {/* emoji reaction  */}
-      <InlineReactionButtons url={currentUrl} /> {/* Pass the current URL as prop */}
+      <div className="my-8 p-4 bg-gray-100 rounded text-red-500 shadow"> {/* Adjust this as needed */}
+    <InlineReactionButtons /> {/* This is the Client Component */}
+  </div>
+      {/* demo emoji raection  */}
+      {/* <div className="sharethis-inline-reaction-buttons"></div> */}
 
       {/* show all tags  */}
       <div className="mt-auto flex flex-col">

@@ -1,5 +1,6 @@
-"use client";
+"use client"; // Mark this component as a Client Component
 
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import React from "react";
 
@@ -9,20 +10,27 @@ const InlineReactionButtons = dynamic(
   { ssr: false }
 );
 
-interface InlineReactionButtonsProps {
-  url: string; // Pass in the URL to share
-}
+const InlineReactionButtonsComponent: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://platform-api.sharethis.com/js/sharethis.js#property=67231db2f9d5250012f5d9c5&product=inline-reaction-buttons&source=platform";
+    script.async = true;
+    document.body.appendChild(script);
 
-const InlineReactionButtonsComponent: React.FC<InlineReactionButtonsProps> = ({ url }) => {
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <InlineReactionButtons
       config={{
-        alignment: 'center',  // alignment of buttons (left, center, right)
-        enabled: true,        // show/hide buttons (true, false)
-        language: 'en',       // which language to use
-        min_count: 0,         // hide react counts less than min_count (INTEGER)
-        padding: 12,          // padding within buttons (INTEGER)
-        reactions: [          // which reactions to include
+        alignment: 'center',
+        enabled: true,
+        language: 'en',
+        min_count: 0,
+        padding: 12,
+        reactions: [
           'slight_smile',
           'heart_eyes',
           'laughing',
@@ -30,10 +38,9 @@ const InlineReactionButtonsComponent: React.FC<InlineReactionButtonsProps> = ({ 
           'sob',
           'rage'
         ],
-        radius: 4,            // the corner radius on each button (INTEGER)
-        size: 48,             // the size of each button (INTEGER)
-        show_total: true,     // show/hide the total count (true, false)
-        url: url              // URL for sharing (defaults to current URL)
+        radius: 4,
+        size: 48,
+        show_total: true,
       }}
     />
   );
