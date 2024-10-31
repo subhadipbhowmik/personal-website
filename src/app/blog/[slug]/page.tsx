@@ -9,7 +9,6 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin, faXTwitter, faWhatsapp, faReddit, faTelegram, faPinterest } from '@fortawesome/free-brands-svg-icons';
-import InlineReactionButtons from "@/components/InlineReactionButtons"; // Import the new Client Component
 
 export async function generateMetadata({
   params,
@@ -139,12 +138,9 @@ export default async function Blog({
       ></article>
 
       {/* emoji reaction  */}
-      <div className="my-8 p-4 bg-gray-100 rounded text-red-500 shadow"> {/* Adjust this as needed */}
-    <InlineReactionButtons /> {/* This is the Client Component */}
-  </div>
-      {/* demo emoji raection  */}
-      {/* <div className="sharethis-inline-reaction-buttons"></div> */}
-
+      <div className="flex justify-center mt-4">
+      <div className="sharethis-inline-reaction-buttons"></div>
+    </div>
       {/* show all tags  */}
       <div className="mt-auto flex flex-col">
         {post.metadata.tags && post.metadata.tags.length > 0 && (

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     google: "zO0OXZHRp2b6W2AjxYtvGn97FFaUcVkyB_I0yn3ydGc",
     yandex: "",
   },
+  viewport: "width=device-width, initial-scale=1.0", // Add viewport here
 };
 
 export default function RootLayout({
@@ -64,18 +65,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="google-site-verification"
-          content="zO0OXZHRp2b6W2AjxYtvGn97FFaUcVkyB_I0yn3ydGc"
-        />
-         <script 
-    type="text/javascript" 
-    src="https://platform-api.sharethis.com/js/sharethis.js#property=67231db2f9d5250012f5d9c5&product=inline-reaction-buttons&source=platform" 
-    async 
-  ></script>
-      </Head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -88,6 +77,10 @@ export default function RootLayout({
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
+        <Script
+          src="https://platform-api.sharethis.com/js/sharethis.js#property=62756b9e89a25900137c277e&product=inline-reaction-buttons"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
