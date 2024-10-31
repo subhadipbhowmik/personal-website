@@ -78,7 +78,7 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
         <Script
-          src="https://platform-api.sharethis.com/js/sharethis.js#property=62756b9e89a25900137c277e&product=inline-reaction-buttons"
+          src="https://platform-api.sharethis.com/js/sharethis.js#property=62756bd689a25900137c277f&product=inline-reaction-buttons"
           strategy="afterInteractive"
         />
       </body>
