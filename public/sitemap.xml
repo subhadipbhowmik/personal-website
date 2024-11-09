@@ -4,54 +4,62 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/certifications/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/my-journey/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/tutorials/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/memories/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/profiles/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/21-lessons-at-21-self-discovery-shubhadip-bhowmik/</loc>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/phonepe-payment-gateway-integration-using-node-js-and-express-js/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/my-dusshera-experience-in-chandigarh/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/letter-to-god/</loc>
-  <lastmod>2024-10-24T10:48:30+00:00</lastmod>
+  <lastmod>2024-11-09T13:37:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
