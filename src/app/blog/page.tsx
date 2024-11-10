@@ -49,7 +49,7 @@ export default async function BlogPage() {
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
-                text={DATA.description}
+                text={DATA.blogDesc}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>

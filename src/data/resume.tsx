@@ -333,7 +333,7 @@ export const DATA = {
     {
       title: "Project Expo '25 CU",
       dates: "November 19th - 22rd, 2023",
-      location: "London, Ontario",
+      location: "Chandigarh, India",
       description:
         "Learning Application for BCA Students which helps in providing Notes, Notification, Teachers details, CR info etc.",
       image:
