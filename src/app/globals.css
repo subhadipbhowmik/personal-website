@@ -3,63 +3,48 @@
 @tailwind utilities;
 
 @layer base {
+  /* Root variables for global styles */
   :root {
     --background: 0 0% 100%;
     --foreground: 210 11.1% 3.53%;
-
     --card: 0 0% 100%;
     --card-foreground: 210 11.1% 3.53%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 210 11.1% 3.53%;
-
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
-
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
-
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
-
     --accent: 0 0% 96.1%;
     --accent-foreground: 0 0% 9%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
-
     --radius: 0.5rem;
   }
 
+  /* Dark mode settings */
   .dark {
     --background: 210 11.1% 3.53%;
     --foreground: 0 0% 98%;
-
     --card: 210 11.1% 3.53%;
     --card-foreground: 0 0% 98%;
-
     --popover: 210 11.1% 3.53%;
     --popover-foreground: 0 0% 98%;
-
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
-
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
-
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
@@ -67,14 +52,53 @@
 }
 
 @layer base {
+  /* Global styles */
   * {
     @apply border-border;
+    /* Hide scrollbar for all elements */
     ::-webkit-scrollbar {
-      display: none;
+      display: none; /* For webkit browsers */
     }
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer / Edge */
   }
+
   body {
     @apply bg-background text-foreground;
+    /* Hide scrollbar globally in the body */
+    ::-webkit-scrollbar {
+      display: none; /* For webkit browsers */
+    }
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer / Edge */
+  }
+
+  /* Specific style for Calcom popup */
+  .calcom-embed-popup,
+  .calcom-embed-popup iframe {
+    overflow: hidden !important; /* Prevent overflow within iframe */
+    -webkit-overflow-scrolling: touch; /* Ensure smooth scrolling for touch devices */
+  }
+
+  /* Prevent scrolling when Calcom popup is open */
+  body.calcom-popup-open,
+  html.calcom-popup-open {
+    overflow: hidden !important; /* Disable scrolling */
+  }
+
+  /* Optional: Custom scrollbar for certain elements if needed */
+  .custom-scrollbar {
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      border: 1px solid rgb(231, 232, 229);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgb(231, 232, 229);
+      border-radius: 10px;
+    }
   }
 }
 
