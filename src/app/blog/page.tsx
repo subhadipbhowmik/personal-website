@@ -22,6 +22,11 @@ export const metadata = {
   description: "My thoughts on software development, life, and more.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 const BLUR_FADE_DELAY = 0.04;
 
 function truncateText(text: string, charLimit: number) {

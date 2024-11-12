@@ -6,8 +6,7 @@ import { DATA } from "@/data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import PROFILE_DATA from './PROFILE_DATA';
 import Image from 'next/image';
-import { getCalApi } from "@calcom/embed-react";
-
+import Link from 'next/link';
 const BLUR_FADE_DELAY = 0.4;
 
 function Profiles() {
@@ -39,17 +38,6 @@ function Profiles() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: "30min" });
-      cal("ui", {
-        styles: { branding: { brandColor: "#4E4AE2" } },
-        hideEventTypeDetails: true,  // Updated to match your initial config
-        layout: "month_view",
-      });
-    })();
-  }, []);
-
   return (
     <div className="mx-auto w-full pb-12">
    <section id="hero">
@@ -76,20 +64,14 @@ function Profiles() {
           </Avatar>
           {/* Smaller button below the image */}
           <button
-            data-cal-namespace="30min"
-            data-cal-link="shubhadip-bhowmik/30min"
-            data-cal-config='{"layout":"month_view"}'
             className="mt-4 py-1 px-4 text-white text-sm font-medium bg-gradient-to-r from-emerald-400 to-indigo-600 rounded-full hover:opacity-90">
-            Book a Meeting
+            <Link target='_blank' href="https://cal.com/shubhadip-bhowmik/book-meeting">Book a call</Link>
           </button>
         </div>
       </BlurFade>
     </div>
   </div>
 </section>
-
-
-
 
       {/* calcom cta section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-4">

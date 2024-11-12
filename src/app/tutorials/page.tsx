@@ -12,6 +12,11 @@ export const metadata = {
     description: "I make Tutorials on Web Development, Software Development, Computer & Technology",
 };
 
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+};
+
 const TutorialsPage: React.FC = () => {
     return (
         <>

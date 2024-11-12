@@ -11,6 +11,11 @@ export const metadata = {
   description: "I Love to Capture Past",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 const BLUR_FADE_DELAY = 0.1;
 
 const Memories: React.FC = () => {

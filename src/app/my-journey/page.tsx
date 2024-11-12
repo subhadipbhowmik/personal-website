@@ -10,6 +10,11 @@ export const metadata = {
   description: 'This is a little story of my life journey.',
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 const BLUR_FADE_DELAY = 0.1;
 
 const MyJourney = () => {

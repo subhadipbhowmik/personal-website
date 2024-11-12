@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     google: "zO0OXZHRp2b6W2AjxYtvGn97FFaUcVkyB_I0yn3ydGc",
     yandex: "",
   },
-  viewport: "width=device-width, initial-scale=1.0", // Add viewport here
+  // viewport: "width=device-width, initial-scale=1.0", // Add viewport here
 };
 
 export default function RootLayout({
