@@ -38,40 +38,40 @@ const BookingSuccessContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted/50 p-4">
-      <Card className="w-full max-w-2xl">
-        <CardHeader className="text-center space-y-6">
-          <div className="mx-auto size-12 rounded-full bg-emerald-100 flex items-center justify-center">
-            <Check className="size-6 text-emerald-600" />
+    <div className="min-h-screen flex items-center justify-center bg-white p-8">
+      <Card className="w-full max-w-2xl bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:scale-105">
+        <CardHeader className="text-center space-y-6 p-6">
+          <div className="mx-auto size-12 rounded-full bg-emerald-600 flex items-center justify-center p-3 shadow-xl">
+            <Check className="size-6 text-white" />
           </div>
           <div className="space-y-2">
-            <h1 className="text-2xl font-semibold tracking-tight">This meeting is scheduled</h1>
+            <h1 className="text-3xl font-semibold text-gray-800">Your meeting is scheduled!</h1>
             {email && (
-              <p className="text-muted-foreground">
-                We sent an email with a calendar invitation with the details to everyone.
+              <p className="text-gray-600 text-lg">
+                We’ve sent a calendar invitation with all the details to everyone.
               </p>
             )}
           </div>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 p-6">
           <div className="space-y-4">
             <div className="grid grid-cols-[100px_1fr] gap-4">
-              <div className="font-medium">What</div>
-              <div>{title}</div>
+              <div className="font-semibold text-gray-700">What</div>
+              <div className="text-lg font-medium text-gray-800">{title}</div>
             </div>
             {description && (
               <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">Description</div>
-                <div className="text-muted-foreground">{description}</div>
+                <div className="font-semibold text-gray-700">Description</div>
+                <div className="text-gray-600">{description}</div>
               </div>
             )}
             {formattedStartTime && (
               <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">When</div>
-                <div>
+                <div className="font-semibold text-gray-700">When</div>
+                <div className="text-lg text-gray-800">
                   <div>{formatDateTime(formattedStartTime)}</div>
                   {formattedEndTime && (
-                    <div className="text-muted-foreground">
+                    <div className="text-gray-600">
                       to {formatDateTime(formattedEndTime)}
                     </div>
                   )}
@@ -79,39 +79,39 @@ const BookingSuccessContent = () => {
               </div>
             )}
             <div className="grid grid-cols-[100px_1fr] gap-4">
-              <div className="font-medium">Who</div>
+              <div className="font-semibold text-gray-700">Who</div>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span>{hostName}</span>
-                    <span className="text-xs bg-muted px-2 py-0.5 rounded">Host</span>
+                    <span className="text-lg font-medium">{hostName}</span>
+                    <span className="text-xs bg-teal-100 text-teal-600 px-2 py-0.5 rounded-full">Host</span>
                   </div>
-                  {email && <div className="text-sm text-muted-foreground">{email}</div>}
+                  {email && <div className="text-sm text-gray-600">{email}</div>}
                 </div>
                 {attendeeName && (
                   <div>
-                    <div>{attendeeName}</div>
+                    <div className="text-lg font-medium">{attendeeName}</div>
                   </div>
                 )}
               </div>
             </div>
             {location && (
               <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">Where</div>
-                <div className="flex items-center gap-2">
+                <div className="font-semibold text-gray-700">Where</div>
+                <div className="flex items-center gap-2 text-lg font-medium text-gray-800">
                   {location}
                   {location.includes('Meet') && (
-                    <ExternalLink className="size-4 text-muted-foreground" />
+                    <ExternalLink className="size-4 text-gray-600" />
                   )}
                 </div>
               </div>
             )}
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="p-6 space-y-4">
           <Button
             onClick={() => router.push('/')}
-            className="w-full"
+            className="w-full bg-teal-500 text-white hover:bg-teal-600 rounded-lg py-2 text-lg font-medium shadow-md transition duration-200"
           >
             Done
           </Button>
@@ -125,7 +125,7 @@ export default function BookingSuccess() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Loading booking details...</p>
+        <p className="text-gray-600">Loading booking details...</p>
       </div>
     }>
       <BookingSuccessContent />
