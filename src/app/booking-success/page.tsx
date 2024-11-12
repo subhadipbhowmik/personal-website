@@ -5,6 +5,11 @@ import { Suspense } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Check, ExternalLink } from "lucide-react"
+import BlurFadeText from '@/components/magicui/blur-fade-text'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import BlurFade from '@/components/magicui/blur-fade';
+import { DATA } from '@/data/resume'; // Assuming you have this data available
+const BLUR_FADE_DELAY = 0.1
 
 const BookingSuccessContent = () => {
   const searchParams = useSearchParams()
@@ -40,8 +45,37 @@ const BookingSuccessContent = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/50 p-4">
       <Card className="w-full max-w-2xl">
+        
+        {/* Hero Section */}
+        <section id="hero">
+          <div className="mx-auto w-full max-w-2xl space-y-8 mb-6">
+            <div className="gap-2 flex justify-between">
+              <div className="flex-col flex flex-1 space-y-1.5">
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className="text-3xl pb-1 font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-indigo-600"
+                  yOffset={8}
+                  text="Meeting Scheduled"
+                />
+                <BlurFadeText
+                  className="max-w-[600px] md:text-xl"
+                  delay={BLUR_FADE_DELAY}
+                  text="Your meeting details are below"
+                />
+              </div>
+              <BlurFade delay={BLUR_FADE_DELAY}>
+              <Avatar className="size-28 border">
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+              </BlurFade>
+            </div>
+          </div>
+        </section>
+
+        {/* Meeting Details */}
         <CardHeader className="text-center space-y-6">
-          <div className="mx-auto size-12 rounded-full flex items-center justify-center">
+          <div className="mx-auto size-12 rounded-full bg-emerald-100 flex items-center justify-center">
             <Check className="size-6 text-emerald-600" />
           </div>
           <div className="space-y-2">
@@ -53,6 +87,7 @@ const BookingSuccessContent = () => {
             )}
           </div>
         </CardHeader>
+
         <CardContent className="space-y-6">
           <div className="space-y-4">
             <div className="grid grid-cols-[100px_1fr] gap-4">
@@ -108,6 +143,7 @@ const BookingSuccessContent = () => {
             )}
           </div>
         </CardContent>
+
         <CardFooter>
           <Button
             onClick={() => router.push('/')}
