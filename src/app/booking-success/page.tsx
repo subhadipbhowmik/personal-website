@@ -4,18 +4,23 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { Suspense } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Check, ExternalLink } from "lucide-react"
-import BlurFadeText from '@/components/magicui/blur-fade-text'
+import { Check, ExternalLink, Calendar, MapPin, Users } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import BlurFade from '@/components/magicui/blur-fade';
-import { DATA } from '@/data/resume'; // Assuming you have this data available
-const BLUR_FADE_DELAY = 0.1
+import { motion } from 'framer-motion'
+import { DATA } from '@/data/resume'
+
+const ANIMATION_DURATION = 0.5
+const STAGGER_DELAY = 0.1
+
+const MotionCard = motion(Card)
+const MotionCardHeader = motion(CardHeader)
+const MotionCardContent = motion(CardContent)
+const MotionCardFooter = motion(CardFooter)
 
 const BookingSuccessContent = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
 
-  // Retrieve query parameters
   const email = searchParams.get('email')
   const title = searchParams.get('title')
   const description = searchParams.get('description')
@@ -25,11 +30,9 @@ const BookingSuccessContent = () => {
   const hostName = searchParams.get('hostName')
   const attendeeName = searchParams.get('attendeeName')
 
-  // Convert times to Date objects
   const formattedStartTime = startTime ? new Date(startTime) : null
   const formattedEndTime = endTime ? new Date(endTime) : null
 
-  // Format the date and time
   const formatDateTime = (date: Date) => {
     return new Intl.DateTimeFormat('en-US', {
       weekday: 'long',
@@ -43,116 +46,148 @@ const BookingSuccessContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center pb-12">
-      <Card className="w-full max-w-2xl">
-        
-        {/* Hero Section */}
-        <section id="hero">
-          <div className="mx-auto w-full max-w-2xl space-y-8 mb-6">
-            <div className="gap-2 flex justify-between">
-              <div className="flex-col flex flex-1 space-y-1.5">
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-3xl pb-1 font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-indigo-600"
-                  yOffset={8}
-                  text="Meeting Scheduled"
-                />
-                <BlurFadeText
-                  className="max-w-[600px] md:text-xl"
-                  delay={BLUR_FADE_DELAY}
-                  text="Your meeting details are below"
-                />
-              </div>
-              <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-              </BlurFade>
-            </div>
-          </div>
-        </section>
-
-        {/* Meeting Details */}
-        <CardHeader className="text-center space-y-6">
-          <div className="mx-auto size-12 rounded-full bg-emerald-100 flex items-center justify-center">
-            <Check className="size-6 text-emerald-600" />
-          </div>
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold tracking-tight">This meeting is scheduled</h1>
+    <div className="min-h-screen flex items-center justify-center p-4 pb-12 bg-gradient-to-br from-indigo-50 via-white to-emerald-50">
+      <MotionCard 
+        className="w-full max-w-2xl overflow-hidden shadow-lg"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: ANIMATION_DURATION }}
+      >
+        <MotionCardHeader 
+          className="text-center space-y-6 bg-gradient-to-r from-emerald-400 to-indigo-600 text-white p-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: ANIMATION_DURATION, duration: ANIMATION_DURATION }}
+        >
+          <motion.div 
+            className="mx-auto size-20 rounded-full bg-white flex items-center justify-center"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY, duration: ANIMATION_DURATION, type: 'spring' }}
+          >
+            <Check className="size-10 text-emerald-600" />
+          </motion.div>
+          <motion.div 
+            className="space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 2, duration: ANIMATION_DURATION }}
+          >
+            <h1 className="text-3xl font-bold tracking-tight">Meeting Scheduled</h1>
             {email && (
-              <p className="text-muted-foreground">
-                We sent an email with a calendar invitation with the details to everyone.
+              <p className="text-emerald-100">
+                We've sent an email with a calendar invitation to all participants.
               </p>
             )}
-          </div>
-        </CardHeader>
+          </motion.div>
+        </MotionCardHeader>
 
-        <CardContent className="space-y-6">
-          <div className="space-y-4">
-            <div className="grid grid-cols-[100px_1fr] gap-4">
-              <div className="font-medium">What</div>
-              <div>{title}</div>
-            </div>
-            {description && (
-              <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">Description</div>
-                <div className="text-muted-foreground">{description}</div>
+        <MotionCardContent 
+          className="space-y-8 p-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 3, duration: ANIMATION_DURATION }}
+        >
+          <div className="space-y-6">
+            <motion.div 
+              className="flex items-center gap-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 4, duration: ANIMATION_DURATION }}
+            >
+              <Calendar className="size-6 text-indigo-600" />
+              <div>
+                <div className="font-semibold text-lg">{title}</div>
+                {description && <div className="text-muted-foreground">{description}</div>}
               </div>
-            )}
+            </motion.div>
+            
             {formattedStartTime && (
-              <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">When</div>
+              <motion.div 
+                className="flex items-center gap-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 5, duration: ANIMATION_DURATION }}
+              >
+                <div className="size-6 flex items-center justify-center">
+                  <div className="size-3 bg-emerald-600 rounded-full"></div>
+                </div>
                 <div>
-                  <div>{formatDateTime(formattedStartTime)}</div>
+                  <div className="font-medium">{formatDateTime(formattedStartTime)}</div>
                   {formattedEndTime && (
-                    <div className="text-muted-foreground">
+                    <div className="text-sm text-muted-foreground">
                       to {formatDateTime(formattedEndTime)}
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             )}
-            <div className="grid grid-cols-[100px_1fr] gap-4">
-              <div className="font-medium">Who</div>
-              <div className="space-y-3">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span>{hostName}</span>
-                    <span className="text-xs bg-muted px-2 py-0.5 rounded">Host</span>
+            
+            <motion.div 
+              className="flex items-center gap-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 6, duration: ANIMATION_DURATION }}
+            >
+              <Users className="size-6 text-indigo-600" />
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Avatar className="size-8">
+                    <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                    <AvatarFallback>{DATA.initials}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <div className="font-medium">{hostName}</div>
+                    <div className="text-sm text-muted-foreground">Host</div>
                   </div>
-                  {email && <div className="text-sm text-muted-foreground">{email}</div>}
                 </div>
                 {attendeeName && (
-                  <div>
-                    <div>{attendeeName}</div>
+                  <div className="flex items-center gap-2">
+                    <Avatar className="size-8">
+                      <AvatarFallback>{attendeeName[0]}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="font-medium">{attendeeName}</div>
+                      <div className="text-sm text-muted-foreground">Attendee</div>
+                    </div>
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
+            
             {location && (
-              <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="font-medium">Where</div>
+              <motion.div 
+                className="flex items-center gap-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 7, duration: ANIMATION_DURATION }}
+              >
+                <MapPin className="size-6 text-indigo-600" />
                 <div className="flex items-center gap-2">
-                  {location}
+                  <span>{location}</span>
                   {location.includes('Meet') && (
                     <ExternalLink className="size-4 text-muted-foreground" />
                   )}
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
-        </CardContent>
+        </MotionCardContent>
 
-        <CardFooter>
+        <MotionCardFooter 
+          className="p-8 pt-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 8, duration: ANIMATION_DURATION }}
+        >
           <Button
             onClick={() => router.push('/')}
-            className="w-full"
+            className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 text-white hover:from-emerald-600 hover:to-indigo-700 transition-all duration-300"
           >
-            Done
+            Back to Dashboard
           </Button>
-        </CardFooter>
-      </Card>
+        </MotionCardFooter>
+      </MotionCard>
     </div>
   )
 }
@@ -160,8 +195,11 @@ const BookingSuccessContent = () => {
 export default function BookingSuccess() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Loading booking details...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-emerald-50">
+        <div className="text-center space-y-4">
+          <div className="size-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <p className="text-lg font-medium text-indigo-600">Loading booking details...</p>
+        </div>
       </div>
     }>
       <BookingSuccessContent />
