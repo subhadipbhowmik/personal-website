@@ -184,7 +184,7 @@ const BookingSuccessContent = () => {
             onClick={() => router.push('/')}
             className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 text-white hover:from-emerald-600 hover:to-indigo-700 dark:from-emerald-600 dark:to-indigo-800 dark:hover:from-emerald-700 dark:hover:to-indigo-900 transition-all duration-300"
           >
-            Back to Dashboard
+            Back to Home
           </Button>
         </MotionCardFooter>
       </MotionCard>
