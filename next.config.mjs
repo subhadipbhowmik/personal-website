@@ -22,7 +22,7 @@ const nextConfig = withMDX({
       'ibm.com',
       'edx.com',
       'media.dev.to',
-      'res.cloudinary.com',
+      'res.cloudinary.com'
     ],
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'], // Include MDX file extensions

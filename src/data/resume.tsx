@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I am a B.C.A student at Chandigarh University, with a passion for technology. I am an Android and Frontend Web Developer. I write blogs, design UI/Mockups, and Contributing to open-source projects. I have accomplished [certification](/certifications). Here is a short story of [my journey](/my-journey)",
+    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well.",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
@@ -45,6 +45,8 @@ export const DATA = {
   profileDesc: "Join me on this journey where we share ideas, learn together, and inspire each other.",
   journey: "My Journey",
   journeyDesc: "Here is a little story of my life journey.",
+  notes: "My Notes",
+  notesDesc: "These are my interview prep notes covering Web Development, Computer Networking, DBMS, OS, and more.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
