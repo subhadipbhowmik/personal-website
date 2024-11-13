@@ -46,26 +46,26 @@ const BookingSuccessContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 pb-12 bg-gradient-to-br from-indigo-50 via-white to-emerald-50">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-12">
       <MotionCard 
-        className="w-full max-w-2xl overflow-hidden shadow-lg"
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-hidden shadow-lg dark:bg-gray-800"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: ANIMATION_DURATION }}
       >
         <MotionCardHeader 
-          className="text-center space-y-6 bg-gradient-to-r from-emerald-400 to-indigo-600 text-white p-8"
+          className="text-center space-y-4 sm:space-y-6 bg-gradient-to-r from-emerald-400 to-indigo-600 text-white dark:from-emerald-600 dark:to-indigo-800 p-6 sm:p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: ANIMATION_DURATION, duration: ANIMATION_DURATION }}
         >
           <motion.div 
-            className="mx-auto size-20 rounded-full bg-white flex items-center justify-center"
+            className="mx-auto size-16 sm:size-20 rounded-full bg-white flex items-center justify-center"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY, duration: ANIMATION_DURATION, type: 'spring' }}
           >
-            <Check className="size-10 text-emerald-600" />
+            <Check className="size-8 sm:size-10 text-emerald-600" />
           </motion.div>
           <motion.div 
             className="space-y-2"
@@ -73,9 +73,9 @@ const BookingSuccessContent = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 2, duration: ANIMATION_DURATION }}
           >
-            <h1 className="text-3xl font-bold tracking-tight">Meeting Scheduled</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Meeting Scheduled</h1>
             {email && (
-              <p className="text-emerald-100">
+              <p className="text-sm sm:text-base text-emerald-100">
                 We've sent an email with a calendar invitation to all participants.
               </p>
             )}
@@ -83,39 +83,39 @@ const BookingSuccessContent = () => {
         </MotionCardHeader>
 
         <MotionCardContent 
-          className="space-y-8 p-8"
+          className="space-y-6 sm:space-y-8 p-6 sm:p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 3, duration: ANIMATION_DURATION }}
         >
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <motion.div 
-              className="flex items-center gap-4"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 4, duration: ANIMATION_DURATION }}
             >
-              <Calendar className="size-6 text-indigo-600" />
+              <Calendar className="size-6 text-white bg-indigo-600 dark:bg-indigo-400 p-1 rounded-full flex-shrink-0" />
               <div>
-                <div className="font-semibold text-lg">{title}</div>
-                {description && <div className="text-muted-foreground">{description}</div>}
+                <div className="font-semibold text-base sm:text-lg dark:text-white">{title}</div>
+                {description && <div className="text-sm text-muted-foreground dark:text-gray-300">{description}</div>}
               </div>
             </motion.div>
             
             {formattedStartTime && (
               <motion.div 
-                className="flex items-center gap-4"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 5, duration: ANIMATION_DURATION }}
               >
-                <div className="size-6 flex items-center justify-center">
-                  <div className="size-3 bg-emerald-600 rounded-full"></div>
+                <div className="size-6 flex items-center justify-center bg-emerald-600 dark:bg-emerald-400 rounded-full flex-shrink-0">
+                  <div className="size-3 bg-white rounded-full"></div>
                 </div>
                 <div>
-                  <div className="font-medium">{formatDateTime(formattedStartTime)}</div>
+                  <div className="font-medium text-sm sm:text-base dark:text-white">{formatDateTime(formattedStartTime)}</div>
                   {formattedEndTime && (
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-300">
                       to {formatDateTime(formattedEndTime)}
                     </div>
                   )}
@@ -124,21 +124,21 @@ const BookingSuccessContent = () => {
             )}
             
             <motion.div 
-              className="flex items-center gap-4"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 6, duration: ANIMATION_DURATION }}
             >
-              <Users className="size-6 text-indigo-600" />
-              <div className="space-y-2">
+              <Users className="size-6 text-white bg-indigo-600 dark:bg-indigo-400 p-1 rounded-full flex-shrink-0" />
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2">
                   <Avatar className="size-8">
                     <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                     <AvatarFallback>{DATA.initials}</AvatarFallback>
                   </Avatar>
                   <div>
-                    <div className="font-medium">{hostName}</div>
-                    <div className="text-sm text-muted-foreground">Host</div>
+                    <div className="font-medium text-sm sm:text-base dark:text-white">{hostName}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-300">Host</div>
                   </div>
                 </div>
                 {attendeeName && (
@@ -147,8 +147,8 @@ const BookingSuccessContent = () => {
                       <AvatarFallback>{attendeeName[0]}</AvatarFallback>
                     </Avatar>
                     <div>
-                      <div className="font-medium">{attendeeName}</div>
-                      <div className="text-sm text-muted-foreground">Attendee</div>
+                      <div className="font-medium text-sm sm:text-base dark:text-white">{attendeeName}</div>
+                      <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-300">Attendee</div>
                     </div>
                   </div>
                 )}
@@ -157,14 +157,14 @@ const BookingSuccessContent = () => {
             
             {location && (
               <motion.div 
-                className="flex items-center gap-4"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 7, duration: ANIMATION_DURATION }}
               >
-                <MapPin className="size-6 text-indigo-600" />
+                <MapPin className="size-6 text-white bg-indigo-600 dark:bg-indigo-400 p-1 rounded-full flex-shrink-0" />
                 <div className="flex items-center gap-2">
-                  <span>{location}</span>
+                  <span className="text-sm sm:text-base dark:text-white">{location}</span>
                   {location.includes('Meet') && (
                     <ExternalLink className="size-4 text-muted-foreground" />
                   )}
@@ -175,14 +175,14 @@ const BookingSuccessContent = () => {
         </MotionCardContent>
 
         <MotionCardFooter 
-          className="p-8 pt-0"
+          className="p-6 sm:p-8 pt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: ANIMATION_DURATION + STAGGER_DELAY * 8, duration: ANIMATION_DURATION }}
         >
           <Button
             onClick={() => router.push('/')}
-            className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 text-white hover:from-emerald-600 hover:to-indigo-700 transition-all duration-300"
+            className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 text-white hover:from-emerald-600 hover:to-indigo-700 dark:from-emerald-600 dark:to-indigo-800 dark:hover:from-emerald-700 dark:hover:to-indigo-900 transition-all duration-300"
           >
             Back to Dashboard
           </Button>
@@ -195,10 +195,10 @@ const BookingSuccessContent = () => {
 export default function BookingSuccess() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-emerald-50">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
-          <div className="size-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-lg font-medium text-indigo-600">Loading booking details...</p>
+          <div className="size-12 border-4 border-indigo-600 dark:border-indigo-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <p className="text-lg font-medium text-indigo-600 dark:text-indigo-400">Loading booking details...</p>
         </div>
       </div>
     }>
