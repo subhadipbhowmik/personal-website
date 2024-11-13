@@ -46,7 +46,7 @@ const BookingSuccessContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-12">
+    <div className="min-h-screen flex items-center justify-center lg:p-12 pb-12">
       <MotionCard 
         className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-hidden shadow-lg dark:bg-gray-800"
         initial={{ opacity: 0, y: 50 }}
