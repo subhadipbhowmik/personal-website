@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well.",
+    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
@@ -47,6 +47,8 @@ export const DATA = {
   journeyDesc: "Here is a little story of my life journey.",
   notes: "My Notes",
   notesDesc: "These are my interview prep notes covering Web Development, Computer Networking, DBMS, OS, and more.",
+  radio: "Listening to Radio",
+  radioDesc: "Listen to my favorite radio station. Top best radio station for programming and development.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -100,7 +102,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Project Maintainer",
-      logoUrl: "/hactoberfest.jpg",
+      logoUrl: "./work/hactoberfest.jpg",
       start: "Oct 2024",
       end: "Present",
       description:
@@ -112,7 +114,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Software Developer",
-      logoUrl: "/codingport.png",
+      logoUrl: "./work/codingport.png",
       start: "June 2024",
       end: "Present",
       description:
@@ -124,7 +126,7 @@ export const DATA = {
       badges: [],
       location: "Mohali, Chandigarh",
       title: "Software Engineer",
-      logoUrl: "/nextdriveindia.png",
+      logoUrl: "./work/nextdriveindia.png",
       start: "Nov 2023",
       end: "April 2024",
       description:
@@ -136,7 +138,7 @@ export const DATA = {
       badges: [],
       location: "Mohali, Chandigarh",
       title: "Project Admin",
-      logoUrl: "/girlscript.png",
+      logoUrl: "./work/girlscript.png",
       start: "May 2024",
       end: "August 2024",
       description:
@@ -148,7 +150,7 @@ export const DATA = {
       badges: [],
       location: "Mohali, Chandigarh",
       title: "Contributing Author",
-      logoUrl: "/freecodecamp.png",
+      logoUrl: "./work/freecodecamp.png",
       start: "Aug 2024",
       end: "Current",
       description:
@@ -160,7 +162,7 @@ export const DATA = {
       school: "Chandigarh University",
       href: "https://www.cuchd.in/",
       degree: "B.C.A",
-      logoUrl: "/chandigarh-university.png",
+      logoUrl: "./education/chandigarh-university.png",
       start: "2022",
       end: "2025",
       description:
@@ -170,7 +172,7 @@ export const DATA = {
       school: "Changrachak Jagadish Smriti Vidyapith",
       href: "https://www.cjsvmoyna.org/",
       degree: "Higher Secondary",
-      logoUrl: "/cjsv.png",
+      logoUrl: "./education/cjsv.png",
       start: "2020",
       end: "2022",
       description:
@@ -180,7 +182,7 @@ export const DATA = {
       school: "Moyna Vivekananda Vidyamandir",
       href: "https://schools.org.in/purba-medinipur/19190103302/moyna-vivekananda-vidyamandir.html",
       degree: "Higher Secondary",
-      logoUrl: "/mvv.png",
+      logoUrl: "./education/mvv.png",
       start: "2014",
       end: "2020",
       description:
