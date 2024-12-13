@@ -1,5 +1,11 @@
 import { Icons } from "@/components/icons";
-import { Contact, HomeIcon, Images, NotebookIcon, TvMinimalPlay} from "lucide-react";
+import {
+  Contact,
+  HomeIcon,
+  Images,
+  NotebookIcon,
+  TvMinimalPlay,
+} from "lucide-react";
 
 export const DATA = {
   name: "Shubhadip Bhowmik",
@@ -31,24 +37,31 @@ export const DATA = {
     "Figma",
     "Postman",
     "API",
-    "Hosting"
+    "Hosting",
   ],
   certification: "Certifications",
-  certificationDesc: "I have completed various certifications. I always keep myself updated with new certifications.",
+  certificationDesc:
+    "I have completed various certifications. I always keep myself updated with new certifications.",
   memories: "Good Memories",
-  memoriesDesc: "Preserving the past through memories, cherishing moments spent with loved ones, and capturing them forever.",
-  blog: "I Write Blogs", 
-  blogDesc: "Learning and teaching are my passions, and in my free time, I express myself through blogs.", 
+  memoriesDesc:
+    "Preserving the past through memories, cherishing moments spent with loved ones, and capturing them forever.",
+  blog: "I Write Blogs",
+  blogDesc:
+    "Learning and teaching are my passions, and in my free time, I express myself through blogs.",
   tutorials: "My Videos",
-  tutorialsDesc: "Sharing knowledge and skills through tutorials is my passion, and I enjoy creating them.",
+  tutorialsDesc:
+    "Sharing knowledge and skills through tutorials is my passion, and I enjoy creating them.",
   profile: "Let's Connect",
-  profileDesc: "Join me on this journey where we share ideas, learn together, and inspire each other.",
+  profileDesc:
+    "Join me on this journey where we share ideas, learn together, and inspire each other.",
   journey: "My Journey",
   journeyDesc: "Here is a little story of my life journey.",
   notes: "My Notes",
-  notesDesc: "These are my interview prep notes covering Web Development, Computer Networking, DBMS, OS, and more.",
+  notesDesc:
+    "These are my interview prep notes covering Web Development, Computer Networking, DBMS, OS, and more.",
   radio: "Listening to Radio",
-  radioDesc: "Listen to my favorite radio station. Top best radio station for programming and development.",
+  radioDesc:
+    "Listen to my favorite radio station. Top best radio station for programming and development.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -153,8 +166,7 @@ export const DATA = {
       logoUrl: "./work/freecodecamp.png",
       start: "Aug 2024",
       end: "Current",
-      description:
-        "I write technical blog on different technical stacks.",
+      description: "I write technical blog on different technical stacks.",
     },
   ],
   education: [
@@ -176,7 +188,7 @@ export const DATA = {
       start: "2020",
       end: "2022",
       description:
-      "It was the first time I was studying far away from my home. A new experiencein hostel life and new friends to get good exposure. Overall a good memory.",
+        "It was the first time I was studying far away from my home. A new experiencein hostel life and new friends to get good exposure. Overall a good memory.",
     },
     {
       school: "Moyna Vivekananda Vidyamandir",
@@ -186,10 +198,33 @@ export const DATA = {
       start: "2014",
       end: "2020",
       description:
-      "First of all I am very sorry, because I am unable to express that about my memories and moments in this school. I got lots of love and objurgation from my beloved sir and madams. Name of the school ends with Vidyamandir, Yes I can say one thing that all the teachers are iso-god of the school [Vidyamandir]",
-    }
+        "First of all I am very sorry, because I am unable to express that about my memories and moments in this school. I got lots of love and objurgation from my beloved sir and madams. Name of the school ends with Vidyamandir, Yes I can say one thing that all the teachers are iso-god of the school [Vidyamandir]",
+    },
   ],
   projects: [
+    {
+      title: "OptiSEO",
+      href: "https://optiseo.vercel.app/",
+      dates: "Dec 2024 - Present",
+      active: true,
+      description:
+        "OptiSEO - Your All-in-One Free SEO Toolkit for Effortless Website Optimization. Access a wide range of powerful SEO tools to improve your website's performance and boost your online visibility. All tools are user-friendly and designed for maximum efficiency. Available online, so you can optimize your website from anywhere, anytime.",
+      technologies: ["HTML", "CSS", "JavaScript", "React.JS", "TailwindCSS"],
+      links: [
+        {
+          type: "Website",
+          href: "https://optiseo.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/subhadipbhowmik/optiseo/",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/optiseo.png",
+      video: "",
+    },
     {
       title: "Examhunt",
       href: "https://examhunt.netlify.app/",
@@ -197,12 +232,7 @@ export const DATA = {
       active: true,
       description:
         "Examhunt - Best Madhyamik Preparation App 2023 Get Madhyamik All Subjects Suggestions, Notes, Guides and Tips in just One App. All notes are High Quality and made by the best Experienced Teachers. We are available on Android devices and platforms. Study from anywhere at your convenience.",
-      technologies: [
-        "Kotlin",
-        "XML",
-        "Android Studio",
-        "Firebase",
-      ],
+      technologies: ["Kotlin", "XML", "Android Studio", "Firebase"],
       links: [
         {
           type: "Website",
@@ -216,8 +246,7 @@ export const DATA = {
         },
       ],
       image: "/projects/examhunt.png",
-      video:
-        "",
+      video: "",
     },
     {
       title: "CU Calculator",
@@ -226,12 +255,7 @@ export const DATA = {
       active: true,
       description:
         "Designed, developed and sold animated UI components for developers.",
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "JS",
-        "Github",
-      ],
+      technologies: ["HTML5", "CSS3", "JS", "Github"],
       links: [
         {
           type: "Website",
@@ -254,14 +278,7 @@ export const DATA = {
       active: true,
       description:
         "30 days of CPP programming challenge is a step by step guide to learn CPP programming language in 30 days.",
-      technologies: [
-        "HTML",
-        "CSS",
-        "JS",
-        "React",
-        "Markdown",
-        "C++",
-      ],
+      technologies: ["HTML", "CSS", "JS", "React", "Markdown", "C++"],
       links: [
         {
           type: "Website",
@@ -284,12 +301,7 @@ export const DATA = {
       active: true,
       description:
         "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
-        technologies: [
-          "HTML",
-          "CSS",
-          "JS",
-          "SEO"
-        ],
+      technologies: ["HTML", "CSS", "JS", "SEO"],
       links: [
         {
           type: "Website",
@@ -298,8 +310,7 @@ export const DATA = {
         },
       ],
       image: "/projects/codingport-banner.png",
-      video:
-        "",
+      video: "",
     },
     {
       title: "BioTree",
@@ -308,14 +319,14 @@ export const DATA = {
       active: true,
       description:
         "BioBranch is a streamlined and customizable platform that lets you manage and showcase all your social media handles and important links in one place.",
-        technologies: [
-          "JavaScript",
-          "REact",
-          "Next.JS",
-          "TailwindCSS",
-          "Express",
-          "MongoDB"
-        ],
+      technologies: [
+        "JavaScript",
+        "REact",
+        "Next.JS",
+        "TailwindCSS",
+        "Express",
+        "MongoDB",
+      ],
       links: [
         {
           type: "Website",
@@ -329,8 +340,7 @@ export const DATA = {
         },
       ],
       image: "/projects/biotree.png",
-      video:
-        "",
+      video: "",
     },
   ],
   hackathons: [
@@ -340,20 +350,19 @@ export const DATA = {
       location: "Chandigarh, India",
       description:
         "Learning Application for BCA Students which helps in providing Notes, Notification, Teachers details, CR info etc.",
-      image:
-        "https://i.ibb.co/31q6y7C/1y-Ygcd7o-400x400.jpg",
-        links: [
-          {
-            title: "Devpost",
-            icon: <Icons.globe className="h-4 w-4" />,
-            href: "https://codingport.in",
-          },
-          {
-            title: "App",
-            icon: <Icons.github className="h-4 w-4" />,
-            href: "https://github.com/subhadipbhowmik/BCA-Mate",
-          }
-        ],
+      image: "https://i.ibb.co/31q6y7C/1y-Ygcd7o-400x400.jpg",
+      links: [
+        {
+          title: "Devpost",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://codingport.in",
+        },
+        {
+          title: "App",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/subhadipbhowmik/BCA-Mate",
+        },
+      ],
     },
     {
       title: "Bajaj Finance Ideathon",
@@ -361,8 +370,7 @@ export const DATA = {
       location: "Chandigarh, India",
       description:
         "Developed a mobile application which allocates a daily carbon emission allowance to users to move towards a sustainable environment.",
-      image:
-        "https://i.ibb.co/281x1mJ/images.jpg",
+      image: "https://i.ibb.co/281x1mJ/images.jpg",
       win: "Best Data Hack",
       mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg",
       links: [
@@ -387,6 +395,6 @@ export const DATA = {
           href: "https://github.com/Wallet6/wallet6-server",
         },
       ],
-    }
+    },
   ],
 } as const;
