@@ -7,8 +7,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faLinkedin, faXTwitter, faWhatsapp, faReddit, faTelegram, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faLinkedin,
+  faXTwitter,
+  faWhatsapp,
+  faReddit,
+  faTelegram,
+  faPinterest,
+} from "@fortawesome/free-brands-svg-icons";
 
 export async function generateMetadata({
   params,
@@ -28,12 +36,14 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     imageUrl,
-    tags = [], // Ensure tags is always an array
+    tags = [],
   } = post.metadata;
 
   let ogImage = imageUrl
     ? `${DATA.url}${imageUrl}`
     : `${DATA.url}/og?title=${title}`;
+
+  console.log("OG Image URL:", ogImage);
 
   return {
     title,
@@ -56,9 +66,8 @@ export async function generateMetadata({
       description,
       images: [ogImage],
     },
-    // Additional SEO meta tags
-    keywords: Array.isArray(tags) ? tags.join(", ") : "shubhadip", // Handle case where tags might not be an array
-    robots: "index, follow", // Allow search engine bots to index and follow links
+    keywords: Array.isArray(tags) ? tags.join(", ") : "shubhadip",
+    robots: "index, follow",
   };
 }
 
@@ -139,8 +148,8 @@ export default async function Blog({
 
       {/* emoji reaction  */}
       <div className="flex justify-center mt-4">
-      <div className="sharethis-inline-reaction-buttons"></div>
-    </div>
+        <div className="sharethis-inline-reaction-buttons"></div>
+      </div>
       {/* show all tags  */}
       <div className="mt-auto flex flex-col">
         {post.metadata.tags && post.metadata.tags.length > 0 && (
@@ -148,10 +157,11 @@ export default async function Blog({
             {post.metadata.tags.map((tag: string, index: number) => (
               <span
                 key={tag}
-                className={`px-2 py-1 text-sm rounded ${index % 2 === 0
-                  ? "bg-[#22C55E] text-white"
-                  : "bg-[#6366F1] text-white"
-                  }`}
+                className={`px-2 py-1 text-sm rounded ${
+                  index % 2 === 0
+                    ? "bg-[#22C55E] text-white"
+                    : "bg-[#6366F1] text-white"
+                }`}
               >
                 #{tag}
               </span>
@@ -163,7 +173,9 @@ export default async function Blog({
       {/* Social media sharing buttons */}
       <div className="mt-4 flex items-center space-x-4">
         <a
-          href={`https://twitter.com/intent/tweet?url=${DATA.url}/blog/${post.slug}&text=${encodeURIComponent(post.metadata.title)}`}
+          href={`https://twitter.com/intent/tweet?url=${DATA.url}/blog/${
+            post.slug
+          }&text=${encodeURIComponent(post.metadata.title)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex p-2 items-center justify-center w-10 h-10 rounded border-black hover:bg-black bg-black transition duration-200"
@@ -173,7 +185,9 @@ export default async function Blog({
         </a>
 
         <a
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}`}
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+            `${DATA.url}/blog/${post.slug}`
+          )}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex p-2 items-center justify-center w-10 h-10 text-white rounded bg-blue-700 hover:bg-blue-800 transition duration-200"
@@ -183,7 +197,9 @@ export default async function Blog({
         </a>
 
         <a
-          href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.metadata.title)}%20${DATA.url}/blog/${post.slug}`}
+          href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+            post.metadata.title
+          )}%20${DATA.url}/blog/${post.slug}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex p-2 items-center justify-center w-10 h-10 rounded bg-green-500 text-white transition duration-200"
@@ -193,7 +209,9 @@ export default async function Blog({
         </a>
 
         <a
-          href={`https://www.reddit.com/submit?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&title=${encodeURIComponent(post.metadata.title)}`}
+          href={`https://www.reddit.com/submit?url=${encodeURIComponent(
+            `${DATA.url}/blog/${post.slug}`
+          )}&title=${encodeURIComponent(post.metadata.title)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex p-2 items-center justify-center w-10 h-10 rounded bg-orange-500 text-white transition duration-200"
@@ -203,7 +221,9 @@ export default async function Blog({
         </a>
 
         <a
-          href={`https://t.me/share/url?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&text=${encodeURIComponent(post.metadata.title)}`}
+          href={`https://t.me/share/url?url=${encodeURIComponent(
+            `${DATA.url}/blog/${post.slug}`
+          )}&text=${encodeURIComponent(post.metadata.title)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center p-2 justify-center w-10 h-10 rounded bg-blue-600 text-white transition duration-200"
@@ -213,13 +233,21 @@ export default async function Blog({
         </a>
 
         <a
-          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(`${DATA.url}/blog/${post.slug}`)}&media=${post.metadata.imageUrl}&description=${encodeURIComponent(post.metadata.title)}`}
+          href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
+            `${DATA.url}/blog/${post.slug}`
+          )}&media=${post.metadata.imageUrl}&description=${encodeURIComponent(
+            post.metadata.title
+          )}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex p-2 items-center justify-center w-10 h-10 rounded bg-red-600 text-white transition duration-200"
           aria-label="Share on Pinterest"
         >
-          <FontAwesomeIcon icon={faPinterest} size="lg" className="text-white" />
+          <FontAwesomeIcon
+            icon={faPinterest}
+            size="lg"
+            className="text-white"
+          />
         </a>
       </div>
     </section>
