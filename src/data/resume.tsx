@@ -203,22 +203,22 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "OptiSEO",
-      href: "https://optiseo.vercel.app/",
+      title: "OmniTools",
+      href: "https://OmniTools.vercel.app/",
       dates: "Dec 2024 - Present",
       active: true,
       description:
-        "OptiSEO - Your All-in-One Free SEO Toolkit for Effortless Website Optimization. Access a wide range of powerful SEO tools to improve your website's performance and boost your online visibility. All tools are user-friendly and designed for maximum efficiency. Available online, so you can optimize your website from anywhere, anytime.",
+        "OmniTools - Your All-in-One Free SEO Toolkit for Effortless Website Optimization. Access a wide range of powerful SEO tools to improve your website's performance and boost your online visibility. All tools are user-friendly and designed for maximum efficiency. Available online, so you can optimize your website from anywhere, anytime.",
       technologies: ["HTML", "CSS", "JavaScript", "React.JS", "TailwindCSS"],
       links: [
         {
           type: "Website",
-          href: "https://optiseo.vercel.app/",
+          href: "https://omnitools.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/subhadipbhowmik/optiseo/",
+          href: "https://github.com/subhadipbhowmik/omni-tools/",
           icon: <Icons.github className="size-3" />,
         },
       ],
