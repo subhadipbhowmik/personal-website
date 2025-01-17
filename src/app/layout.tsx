@@ -55,7 +55,6 @@ export const metadata: Metadata = {
     google: "zO0OXZHRp2b6W2AjxYtvGn97FFaUcVkyB_I0yn3ydGc",
     yandex: "",
   },
-  // viewport: "width=device-width, initial-scale=1.0", // Add viewport here
 };
 
 export default function RootLayout({
@@ -77,10 +76,25 @@ export default function RootLayout({
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
+        {/* ShareThis Script */}
         <Script
           src="https://platform-api.sharethis.com/js/sharethis.js#property=62756bd689a25900137c277f&product=inline-reaction-buttons"
           strategy="afterInteractive"
         />
+        {/* Google Analytics Scripts */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-918F6W2R3S"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-918F6W2R3S');
+          `}
+        </Script>
       </body>
     </html>
   );
