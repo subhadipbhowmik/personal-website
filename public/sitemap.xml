@@ -4,86 +4,114 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
 
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/certifications/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/my-journey/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/notes/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf</loc>
-  <lastmod>2024-11-29T09:51:18+00:00</lastmod>
+  <lastmod>2025-01-18T05:47:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/radio/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/tutorials/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/memories/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/profiles/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/hirequest-interview-tracking-system-final-year-project-shubhadip-bhowmik/</loc>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/proxy-reverse-proxy-load-balancer/</loc>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/top-docker-containers-2025/</loc>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/why-i-moved-to-chandigarh/</loc>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shubhadipbhowmik.vercel.app/blog/letting-go-is-not-losing-but-moving-forward/</loc>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/5-strategies-to-learn-better-and-faster-as-a-software-engineer/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/20-tricky-javascript-truthy-and-falsy-values-with-solutions-for-beginners-and-advanced-developers/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/21-lessons-at-21-self-discovery-shubhadip-bhowmik/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/phonepe-payment-gateway-integration-using-node-js-and-express-js/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/my-dusshera-experience-in-chandigarh/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://shubhadipbhowmik.vercel.app/blog/letter-to-god/</loc>
-  <lastmod>2024-11-29T09:51:27+00:00</lastmod>
+  <lastmod>2025-01-18T05:48:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+
 
 </urlset>
