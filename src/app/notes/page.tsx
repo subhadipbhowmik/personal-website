@@ -1,23 +1,23 @@
-import React from 'react';
-import Image from 'next/image';
-import BlurFade from '@/components/magicui/blur-fade';
-import BlurFadeText from '@/components/magicui/blur-fade-text';
+import React from "react";
+import Image from "next/image";
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { DATA } from "@/data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ALL_NOTES } from '../../../public/notes/ALL_NOTES';
+import { ALL_NOTES } from "../../../public/notes/ALL_NOTES";
 
 const BLUR_FADE_DELAY = 0.1;
 
 export const metadata = {
   title: "Download Notes & Cheatsheets",
-  description: "Download Notes & Cheatsheets of Shubhadip Bhowmik for Web Development, Software Development, Computer & Technology",
+  description:
+    "Download Notes & Cheatsheets of Shubhadip Bhowmik for Web Development, Software Development, Computer & Technology",
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
-
 
 const Notes = () => {
   return (
@@ -69,7 +69,8 @@ const Notes = () => {
                     href={note.noteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-4 py-2 text-white bg-gradient-to-r from-emerald-400 to-indigo-600 rounded-full">
+                    className="inline-block mt-4 px-4 py-2 text-white bg-gradient-to-r from-emerald-400 to-indigo-600 rounded-full"
+                  >
                     GET Notes
                   </a>
                 </div>
@@ -79,7 +80,7 @@ const Notes = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Notes;

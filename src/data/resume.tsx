@@ -16,7 +16,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
+    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. Here are some of the [projects](/projects) that I have worked on. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
@@ -59,6 +59,9 @@ export const DATA = {
   notes: "My Notes",
   notesDesc:
     "These are my interview prep notes covering Web Development, Computer Networking, DBMS, OS, and more.",
+  projectText: "My Projects",
+  projectTextDesc:
+    "These are the projects I have worked on. Some of them are personal projects, some are open-source projects, and some are client projects.",
   radio: "Listening to Radio",
   radioDesc:
     "Listen to my favorite radio station. Top best radio station for programming and development.",
@@ -92,12 +95,12 @@ export const DATA = {
         icon: Icons.x,
         navbar: false,
       },
-      // Youtube: {
-      //   name: "Youtube",
-      //   url: "https://www.youtube.com/@shubhadipbhowmik",
-      //   icon: Icons.youtube,
-      //   navbar: true,
-      // },
+      Youtube: {
+        name: "Youtube",
+        url: "https://www.youtube.com/@shubhadipbhowmik",
+        icon: Icons.youtube,
+        navbar: false,
+      },
       email: {
         name: "Send Email",
         url: "#",
@@ -206,9 +209,10 @@ export const DATA = {
       title: "OmniTools",
       href: "https://OmniTools.vercel.app/",
       dates: "Dec 2024 - Present",
+      projectType: "Website",
       active: true,
       description:
-        "OmniTools - Your All-in-One Free SEO Toolkit for Effortless Website Optimization. Access a wide range of powerful SEO tools to improve your website's performance and boost your online visibility. All tools are user-friendly and designed for maximum efficiency. Available online, so you can optimize your website from anywhere, anytime.",
+        "OmniTools: All-in-one toolkit for writing, SEO, profile fetching, and more. Boost your website’s performance with user-friendly tools, accessible anytime, anywhere.",
       technologies: ["HTML", "CSS", "JavaScript", "React.JS", "TailwindCSS"],
       links: [
         {
@@ -229,6 +233,7 @@ export const DATA = {
       title: "Examhunt",
       href: "https://examhunt.netlify.app/",
       dates: "July 2023 - Present",
+      projectType: "Android App",
       active: true,
       description:
         "Examhunt - Best Madhyamik Preparation App 2023 Get Madhyamik All Subjects Suggestions, Notes, Guides and Tips in just One App. All notes are High Quality and made by the best Experienced Teachers. We are available on Android devices and platforms. Study from anywhere at your convenience.",
@@ -252,9 +257,10 @@ export const DATA = {
       title: "CU Calculator",
       href: "https://cucalculator.netlify.app/",
       dates: "June 2023 - Present",
+      projectType: "Website",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
+        "A website to calculate SGPA and CGPA for Chandigarh University students with accurate, easy-to-use tools for quick results.",
       technologies: ["HTML5", "CSS3", "JS", "Github"],
       links: [
         {
@@ -275,9 +281,10 @@ export const DATA = {
       title: "30-Days-Of-CPP",
       href: "https://subhadipbhowmik.github.io/30-Days-Of-CPP/",
       dates: "April 2023 - September 2023",
+      projectType: "Website",
       active: true,
       description:
-        "30 days of CPP programming challenge is a step by step guide to learn CPP programming language in 30 days.",
+        "A 30-day step-by-step challenge designed to help you master C++ programming. Learn core concepts, improve coding skills, and build confidence in just one month of focused practice.",
       technologies: ["HTML", "CSS", "JS", "React", "Markdown", "C++"],
       links: [
         {
@@ -299,8 +306,9 @@ export const DATA = {
       href: "https://codingport.in",
       dates: "April 2023 - March 2024",
       active: true,
+      projectType: "Website",
       description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+        "A free platform to learn Java, C, C++, and JavaScript. Offers LeetCode solutions, campus interview prep, placement guidance, and internship notifications for aspiring programmers.",
       technologies: ["HTML", "CSS", "JS", "SEO"],
       links: [
         {
@@ -316,9 +324,10 @@ export const DATA = {
       title: "BioTree",
       href: "https://biobranch.vercel.app/",
       dates: "Aug 2024 - Sep 2024",
+      projectType: "Website",
       active: true,
       description:
-        "BioBranch is a streamlined and customizable platform that lets you manage and showcase all your social media handles and important links in one place.",
+        "A customizable platform to manage and showcase all your social media profiles and important links in one place, simplifying your online presence.",
       technologies: [
         "JavaScript",
         "REact",
@@ -340,6 +349,30 @@ export const DATA = {
         },
       ],
       image: "/projects/biotree.png",
+      video: "",
+    },
+    {
+      title: "CPP Easy Snippet",
+      href: "https://marketplace.visualstudio.com/items?itemName=ShubhadipBhowmik.cpp-easy-snippet",
+      dates: "Jan 2025 - Present",
+      projectType: "VS Code Extension",
+      active: true,
+      description:
+        "Boost your C++ development productivity with the CPP Boilerplate Generator extension for Visual Studio Code. Say goodbye to repetitive code setup and hello to streamlined project initialization. This extension provides essential C++ boilerplate code snippets and templates, helping you kickstart your projects swiftly and efficiently.",
+      technologies: ["C++", "Visual Studio Code", "JavaScript"],
+      links: [
+        {
+          type: "Marketplace",
+          href: "https://marketplace.visualstudio.com/items?itemName=subhadipbhowmik.cpp-easy-snippet",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/subhadipbhowmik/CPP-Easy-Snippet",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/cpp-easy-snippet.png", // Ensure this file is in your public assets or static folder
       video: "",
     },
   ],

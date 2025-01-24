@@ -47,9 +47,10 @@ export function ProjectCard({
       }
     >
       <Link
-      target="_blank"
+        target="_blank"
         href={href || "#"}
-        className={cn("block cursor-pointer", className)}>
+        className={cn("block cursor-pointer", className)}
+      >
         {video && (
           <video
             src={video}
@@ -70,7 +71,7 @@ export function ProjectCard({
           />
         )}
       </Link>
-      
+
       <CardHeader className="px-2">
         <div className="space-y-1">
           <CardTitle className="mt-1 text-base">{title}</CardTitle>
