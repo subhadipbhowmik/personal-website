@@ -14,6 +14,7 @@ import Markdown from "react-markdown";
 interface Props {
   title: string;
   href?: string;
+  projectType?: string;
   description: string;
   dates: string;
   tags: readonly string[];
@@ -33,6 +34,7 @@ export function ProjectCard({
   href,
   description,
   dates,
+  projectType,
   tags,
   link,
   image,

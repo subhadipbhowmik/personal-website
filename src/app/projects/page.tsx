@@ -19,8 +19,8 @@ export const viewport = {
 };
 
 // Group projects by projectType
-const groupProjectsByType = (projects: any) => {
-  return projects.reduce((acc: any, project: any) => {
+const groupProjectsByType = (projects) => {
+  return projects.reduce((acc, project) => {
     if (!acc[project.projectType]) {
       acc[project.projectType] = [];
     }
