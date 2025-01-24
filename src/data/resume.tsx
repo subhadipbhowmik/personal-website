@@ -236,7 +236,7 @@ export const DATA = {
       projectType: "Android App",
       active: true,
       description:
-        "Examhunt - Best Madhyamik Preparation App 2023 Get Madhyamik All Subjects Suggestions, Notes, Guides and Tips in just One App. All notes are High Quality and made by the best Experienced Teachers. We are available on Android devices and platforms. Study from anywhere at your convenience.",
+        "Examhunt simplifies Madhyamik preparation with high-quality suggestions, notes, guides, and tips from expert teachers, accessible on Android for convenient learning anytime, anywhere.",
       technologies: ["Kotlin", "XML", "Android Studio", "Firebase"],
       links: [
         {
@@ -358,12 +358,12 @@ export const DATA = {
       projectType: "VS Code Extension",
       active: true,
       description:
-        "Boost your C++ development productivity with the CPP Boilerplate Generator extension for Visual Studio Code. Say goodbye to repetitive code setup and hello to streamlined project initialization. This extension provides essential C++ boilerplate code snippets and templates, helping you kickstart your projects swiftly and efficiently.",
+        "Boost C++ productivity with the CPP Boilerplate Generator for VS Code. Simplify project setup with essential boilerplate snippets and templates, ensuring quick and efficient initialization.",
       technologies: ["C++", "Visual Studio Code", "JavaScript"],
       links: [
         {
           type: "Marketplace",
-          href: "https://marketplace.visualstudio.com/items?itemName=subhadipbhowmik.cpp-easy-snippet",
+          href: "https://marketplace.visualstudio.com/items?itemName=shubhadipbhowmik.cpp-easy-snippet",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -372,7 +372,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/projects/cpp-easy-snippet.png", // Ensure this file is in your public assets or static folder
+      image: "/projects/cpp-easy-snippet.png",
       video: "",
     },
   ],
