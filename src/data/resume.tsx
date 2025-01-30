@@ -16,7 +16,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. Here are some of the [projects](/projects) that I have worked on. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
+    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. Here are some of the [projects](/my-projects) that I have worked on. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
