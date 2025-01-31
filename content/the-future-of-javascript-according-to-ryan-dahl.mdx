@@ -6,43 +6,40 @@ imageUrl: "/blog/the-future-of-javascript-by-ryan-dahl-nodejs-creator.png"
 tags: ["JavaScript", "Deno", "Node.js", "Ryan Dahl"]
 ---
 
-Ryan Dahl, the creator of Node.js and Deno, has a unique perspective on the JavaScript landscape, having shaped its trajectory in significant ways. In a recent interview, he shared his thoughts on the future of JavaScript, emphasizing adherence to web standards, the importance of TypeScript, and the need for a more unified ecosystem. Let's dive into the key aspects of his vision:
+The fellow behind Node.js and Deno, Ryan Dahl, has an interesting take on the whole JavaScript scene since he's had such a big hand in shaping it. In a recent chat, he opened up about what he sees for the future of JavaScript, stressing the importance of sticking to web standards, the role of TypeScript, and how we need a more connected ecosystem. So, let's check out the main points of his vision:
 
 ### The Web Browser is the North Star
 
-Dahl's core philosophy revolves around the idea that the **future of JavaScript is inextricably linked to the browser**. He believes that any deviation from browser standards only creates technical debt down the road. This is a key point that he feels was missed with the development of Node.js, where the module system and other aspects diverged from web standards. He sees **the browser as the ultimate standard** for JavaScript, and believes that server-side JavaScript should strive to align with it as closely as possible.
+Dahl's main philosophy is that the **future of JavaScript is totally connected to the browser**. He thinks that straying from browser standards just leads to more tech issues later on. This is a big deal that he believes was overlooked when they were building Node.js, where the module system and other stuff went off track from web standards. The ultimate standard for JavaScript, in his view, is the browser. Server-side JavaScript ought to be as close to it as possible.
 
-![The Future of JavaScript by Ryan Dahl](/blog/the-future-of-javascript-by-ryan-dahl-nodejs-creator.png "Ryan Dahl’s vision for JavaScript, web standards, and TypeScript")
+![The Future of JavaScript by Ryan Dahl](/blog/the-future-of-javascript-by-ryan-dahl-nodejs-creator.png "Ryan Dahl's vision for JavaScript, web standards, and TypeScript")
 
-- **ESM is the Way**: Dahl is a firm believer in ECMAScript Modules (ESM) and thinks it's time to leave CommonJS behind. He argues that using anything other than ESM is "working against the specification". While Deno supports importing CommonJS modules for backward compatibility, it is not a recommended approach for developers building new applications.
-- **No More Reinventing the Wheel**: Dahl's vision is about creating a server-side JavaScript environment that respects web standards rather than creating a completely separate ecosystem. This means implementing features that are as close as possible to what browsers offer.
+- **ESM is the Way**: So, Dahl is completely sold on ECMAScript Modules (ESM) and feels it's high time we do away with CommonJS. According to him, using anything else but ESM is like "working against the specification." Though Deno lets you import CommonJS modules for backward compatibility, it's not really the best way for developers who are building new apps.
+- **No More Reinventing the Wheel** So, Dahl's all about making a server-side JavaScript setup that actually sticks to web standards instead of making some totally different ecosystem. So, it just means adding features super similar to what browsers provide.
 
 ### Embracing TypeScript as the Natural Evolution
 
-Dahl sees **TypeScript as the natural way to add types to JavaScript**. He believes that TypeScript makes developers more productive and is very pragmatic. He hopes that the ongoing effort to add type comments to JavaScript will ultimately align with TypeScript syntax.
+Dahl thinks **TypeScript is the easiest way to throw types into JavaScript**. He's all about how TypeScript boosts developer productivity and keeps it real. He's hoping that the push to stick type comments in JavaScript will eventually match up with TypeScript's syntax.
 
-- **Types are Essential:** He thinks that it is apparent that TypeScript is very useful, and the way to add types to JavaScript, not Flow or any other system.
-- **Browsers Will Catch Up**: His hope is that browsers will eventually be able to take TypeScript files and strip out the types for execution. Deno is already taking this leap, allowing developers to program directly in TypeScript.
+- **Types are Fundamental**: He completely agrees it's obvious that TypeScript is really convenient and this is how you add types to JavaScript, not Flow or whatever else. - **Browsers Will Eventually Catch Up**: He's expecting that eventually browsers will be able to fetch TypeScript files and just strip out the types so you can run them. Deno is doing some of this already, so developers can just write straight up in TypeScript.
 
-### A Unified Ecosystem Through JSR
+### A United Ecosystem via JSR
 
-Dahl expresses concerns about the current state of npm, which he describes as a "forgotten corner of Microsoft". He believes the JavaScript ecosystem could be much better. This concern led to the creation of **JSR, a new open-source JavaScript registry** designed to be delightful for both publishers and consumers.
+Dahl worries over how npm is doing presently; he described it as the "forgotten corner of Microsoft." He believed the JavaScript ecosystem needed improvement, hence the need to start up something new that is going to change everything in its own ways - a perfect experience for publishers and consumers alike, that's **JSR, a new open-source JavaScript registry**.
 
-- **JSR's Goals:** JSR aims to be a modern alternative to npm, with features such as autogenerated docs, a "pub score," and security features. It works natively with Deno but also has an npm adapter to be used in Node.js and other environments.
-- **Focus on the Developer Experience**: JSR prioritizes ease of use for publishing and consuming packages, especially when dealing with TypeScript.
-- **Centralized and Controlled**: Unlike the distributed nature of Deno's original module system, JSR is a centralized registry which prioritizes reliability and stability. It also takes a more active stance on package ownership, preventing squatting and ensuring that well-known scopes belong to their respective organizations.
+- **JSR's Objectives:** So, JSR wants to be like the cool new version of npm and has stuff like autogenerated docs, a "pub score," and security features. It plays nice with Deno but also has this npm adapter so you can use it in Node.js and other places too.
+- **Focus on Developer Experience**: JSR really cares about making it super easy to publish and use packages, especially when you're working with TypeScript.
+- **Centralized and Controlled**: So, unlike Deno's original module system all up in the air, JSR is a centralized registry really tuned into being reliable and stable. In addition, it is much more hands-on with regards to ownership of packages, preventing squatting and making sure popular scopes stay with the right organizations.
 
 ### A Focus on Practicality
 
-Dahl's vision isn't about chasing the newest trends but rather about creating a stable, reliable, and practical development environment. He thinks that the JavaScript world has suffered from unnecessary complexity.
+Dahl's vision isn't about jumping on the latest trends; it's more about building a stable, reliable, and practical development environment. He feels like the JavaScript world has been bogged down by unnecessary complexity.
 
 - **Simplicity is Key**: With Deno, he aims to provide a complete development toolkit in a single executable file, making it easier for newcomers to start. Deno offers built-in tools like code formatting, linting, and type checking, removing the need to install and configure many different tools.
-- **Security by Default**: Deno takes a security-first approach by requiring explicit permissions for accessing the file system or network, similar to how browsers handle permissions. This creates a more secure environment by default.
-- **The Importance of Standards:** He emphasizes the importance of adhering to specifications and not deviating from them unless absolutely necessary. While specifications can be broken, he believes the module system is something that should remain aligned with standards.
-- **Long-Term Thinking**: He believes that JavaScript is "too deeply embedded in humanity" to disappear anytime soon. This long-term perspective guides his decisions about the future of the language.
+  Security by Default: Deno takes the security-first approach by requiring explicit permissions for file system or network access, akin to how permissions are handled within browsers. The environment is now more secure by default.
+- **Standards:** He really stresses how important it is to stay on the specs and not wander from them unless you have to. Although you can break the specs, he thinks the module system should certainly be in line with the standards.
+- **Long-Term Thinking**: He believes JavaScript is "too deeply embedded in humanity" to just disappear anytime soon. This long-term view helps him make decisions about where the language is heading.
 
 ### Looking Ahead
 
-Dahl is focused on making JavaScript development as smooth and enjoyable as possible. This means continuing to refine the Deno runtime, support for typescript, and push for a more unified ecosystem through projects like JSR. He also seems open to the idea of collaboration with other projects and is carefully watching how the community is evolving. He wants to get the trademark issue around Javascript addressed.
-
-In conclusion, Ryan Dahl's vision for the future of JavaScript centers on aligning with web standards, embracing TypeScript, and making the developer experience as simple and secure as possible. He emphasizes practicality and long-term thinking, aiming to address some of the pain points in the existing JavaScript ecosystem. His work with Deno and JSR reflects these ideas, offering a glimpse into a potential future for JavaScript development.
+He wants JavaScript development to be the most smoothest and fun activity ever. Which is to keep the Deno runtime fine-tuned, keeping the backside support for TypeScript, and make sure that such an ecosystem works well with everything with projects like JSR; also open for collaborating with others, keeping his ears open as the community moves ahead, sort out the issue on trademark and JavaScript.
