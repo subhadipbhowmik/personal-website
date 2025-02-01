@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import {
+  Code,
   Contact,
   HomeIcon,
   Images,
@@ -16,7 +17,7 @@ export const DATA = {
   description:
     "I am a hobbyist software developer and a tinkerer. I love building things and helping people.",
   summary:
-    "I’m a B.C.A student at Chandigarh University with a passion for technology. I specialize in Android and Frontend Web Development, write blogs, design UI/mockups, and contribute to open-source projects. Here are some of the [projects](/my-projects) that I have worked on. I’ve also completed [certifications](/certifications). Here’s a short story of [my journey](/my-journey), and you can explore my interview prep [notes](/notes). You can view my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf) as well. Listen to my favorite radio station [here](/radio).",
+    "I am a B.C.A student at Chandigarh University with a strong interest in technology. My expertise lies in Android development and Frontend Web Development. Additionally, I write technical blogs, design UI/mockups, and actively contribute to open-source projects. You can explore some of the [projects](/my-projects) I have worked on and view my completed [certifications](/certifications). To learn more about my professional journey, visit [my story](/my-journey). I have also compiled interview preparation [notes](/notes) to aid aspiring developers. For a detailed overview of my qualifications and experience, you can access my [resume](/resume/SHUBHADIP_BHOWMIK_SDE_Resume.pdf). Additionally, feel free to check out my professional [profiles](/profiles).",
   avatarUrl: "/me.png",
   ogImage: "/shubhadip-og.png",
   skills: [
@@ -48,7 +49,10 @@ export const DATA = {
   blog: "I Write Blogs",
   blogDesc:
     "Learning and teaching are my passions, and in my free time, I express myself through blogs.",
-  tutorials: "My Videos",
+  proj: "Creating Projects",
+  projDesc:
+    "I learn and teach through diverse projects, exploring ideas and creating solutions.",
+  tutorials: "Sharing Tutorials",
   tutorialsDesc:
     "Sharing knowledge and skills through tutorials is my passion, and I enjoy creating them.",
   profile: "Let's Connect",
@@ -67,10 +71,11 @@ export const DATA = {
     "Listen to my favorite radio station. Top best radio station for programming and development.",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/my-projects", icon: Code, label: "Projects" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/tutorials", icon: TvMinimalPlay, label: "Tutorials" },
     { href: "/memories", icon: Images, label: "Memories" },
-    { href: "/profiles", icon: Contact, label: "Profiles" },
+    // { href: "/profiles", icon: Contact, label: "Profiles" },
   ],
   contact: {
     email: "shubhadipbhowmikdev@gmail.com",
@@ -113,7 +118,7 @@ export const DATA = {
 
   work: [
     {
-      company: "Hacktoberfest 2024",
+      company: "Hacktoberfest",
       href: "https://www.holopin.io/@subhadipbhowmik",
       badges: [],
       location: "Remote",
@@ -150,10 +155,10 @@ export const DATA = {
     },
     {
       company: "GirlScript Summer of Code",
-      href: "https://nextdriveindia.com/",
+      href: "https://gssoc.girlscript.tech/project",
       badges: [],
       location: "Mohali, Chandigarh",
-      title: "Project Admin",
+      title: "Open Source Developer",
       logoUrl: "./work/girlscript.png",
       start: "May 2024",
       end: "August 2024",
@@ -181,7 +186,7 @@ export const DATA = {
       start: "2022",
       end: "2025",
       description:
-        "Currently I have taken admission here for my B.C.A. I am very excited for physically meet and interact with my new buddy and faculties.",
+        "I am currently pursuing a Bachelor of Computer Applications (B.C.A.) at Chandigarh University, which offers a comprehensive curriculum designed to bridge the gap between theoretical learning and practical application. The program emphasizes in-depth knowledge of programming languages, data structures, algorithms, database management, business analytics, and machine learning. Learning methods include case studies and projects that provide real-world application of concepts and practices.",
     },
     {
       school: "Changrachak Jagadish Smriti Vidyapith",
@@ -211,6 +216,7 @@ export const DATA = {
       dates: "Dec 2024 - Present",
       projectType: "Website",
       active: true,
+      featured: true,
       description:
         "OmniTools: All-in-one toolkit for writing, SEO, profile fetching, and more. Boost your website’s performance with user-friendly tools, accessible anytime, anywhere.",
       technologies: ["HTML", "CSS", "JavaScript", "React.JS", "TailwindCSS"],
@@ -235,6 +241,7 @@ export const DATA = {
       dates: "July 2023 - Present",
       projectType: "Android App",
       active: true,
+      featured: true,
       description:
         "Examhunt simplifies Madhyamik preparation with high-quality suggestions, notes, guides, and tips from expert teachers, accessible on Android for convenient learning anytime, anywhere.",
       technologies: ["Kotlin", "XML", "Android Studio", "Firebase"],
@@ -259,6 +266,7 @@ export const DATA = {
       dates: "June 2023 - Present",
       projectType: "Website",
       active: true,
+      featured: false,
       description:
         "A website to calculate SGPA and CGPA for Chandigarh University students with accurate, easy-to-use tools for quick results.",
       technologies: ["HTML5", "CSS3", "JS", "Github"],
@@ -283,6 +291,7 @@ export const DATA = {
       dates: "April 2023 - September 2023",
       projectType: "Website",
       active: true,
+      featured: false,
       description:
         "A 30-day step-by-step challenge designed to help you master C++ programming. Learn core concepts, improve coding skills, and build confidence in just one month of focused practice.",
       technologies: ["HTML", "CSS", "JS", "React", "Markdown", "C++"],
@@ -306,6 +315,7 @@ export const DATA = {
       href: "https://codingport.in",
       dates: "April 2023 - March 2024",
       active: true,
+      featured: true,
       projectType: "Website",
       description:
         "A free platform to learn Java, C, C++, and JavaScript. Offers LeetCode solutions, campus interview prep, placement guidance, and internship notifications for aspiring programmers.",
@@ -326,6 +336,7 @@ export const DATA = {
       dates: "Aug 2024 - Sep 2024",
       projectType: "Website",
       active: true,
+      featured: true,
       description:
         "A customizable platform to manage and showcase all your social media profiles and important links in one place, simplifying your online presence.",
       technologies: [
@@ -357,6 +368,7 @@ export const DATA = {
       dates: "Jan 2025 - Present",
       projectType: "VS Code Extension",
       active: true,
+      featured: true,
       description:
         "Boost C++ productivity with the CPP Boilerplate Generator for VS Code. Simplify project setup with essential boilerplate snippets and templates, ensuring quick and efficient initialization.",
       technologies: ["C++", "Visual Studio Code", "JavaScript"],
