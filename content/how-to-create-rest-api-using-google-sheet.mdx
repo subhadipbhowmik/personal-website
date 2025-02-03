@@ -1,0 +1,198 @@
+---
+title: "How to Create a REST API Using Google Sheets and Google Apps Script: A Step-by-Step Guide"
+publishedAt: "2025-02-03"
+summary: "Learn how to build a simple REST API using Google Sheets and Google Apps Script. This tutorial covers GET, POST, PUT, DELETE methods and how to test with Postman."
+imageUrl: "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1738589464/portfolio/blogs/google-sheets-rest-api-guide_w1kaxa.png"
+tags: ["REST API", "Google Sheets", "Postman"]
+---
+
+Creating a simple REST API using Google Sheets as your database is a fantastic way to manage data in an easily accessible and cloud-based manner. In this tutorial, we'll go through the entire process of setting up the API, including how to handle `GET`, `POST`, `PUT`, and `DELETE` requests.
+
+![Google Sheets REST API Guide](https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1738589464/portfolio/blogs/google-sheets-rest-api-guide_w1kaxa.png "Google Sheets REST API Guide")
+
+### **Step 1: Set Up Your Google Sheet**
+
+1. Open a new or existing Google Sheets document.
+2. Create a sheet with the following columns: `name`, `uid`, `project_name`. For example:
+   ```
+   name                | uid        | project_name
+   ----------------------------------------------------
+   Shubhadip Bhowmik   | 22BCA10032 | Hirequest Website
+   Deepasha Rani       | 22BCA10016 | Portfolio Website
+   Sanya Sharma        | 22BCA1006  | Mobile App Design
+   ...
+   ```
+3. Make sure the data is organized and that the first row is used as the header.
+
+### **Step 2: Open Google Apps Script**
+
+1. In the Google Sheets document, click on **Extensions > Apps Script**.
+2. This will open the Google Apps Script editor, where you can write the code for the REST API.
+
+### **Step 3: Write the API Code**
+
+Copy the following code into the script editor:
+
+```javascript
+// 📥 GET Request - Fetch All Data
+function doGet(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+
+  const headers = data[0];
+  const rows = data.slice(1).map((row) => {
+    let obj = {};
+    headers.forEach((header, i) => (obj[header] = row[i]));
+    return obj;
+  });
+
+  return respond({ status: "success", data: rows });
+}
+
+// 📤 POST Request - Add New Data
+function doPost(e) {
+  if (!e || !e.postData || !e.postData.contents) {
+    return respond({ status: "error", message: "Invalid request body" });
+  }
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+
+  if (data.name && data.uid && data.project_name) {
+    sheet.appendRow([data.name, data.uid, data.project_name]);
+    return respond({ status: "added", data });
+  } else {
+    return respond({ status: "error", message: "Missing fields" });
+  }
+}
+
+// ✏️ PUT Request - Update Existing Data
+function doPut(e) {
+  if (!e || !e.postData || !e.postData.contents) {
+    return respond({ status: "error", message: "Invalid request body" });
+  }
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+  const allData = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < allData.length; i++) {
+    if (allData[i][1] === data.uid) {
+      // UID is in the second column
+      sheet
+        .getRange(i + 1, 1, 1, 3)
+        .setValues([[data.name, data.uid, data.project_name]]);
+      return respond({ status: "updated", data });
+    }
+  }
+  return respond({ status: "error", message: "UID not found" });
+}
+
+// ❌ DELETE Request - Delete Data by UID
+function doDelete(e) {
+  if (!e || !e.postData || !e.postData.contents) {
+    return respond({ status: "error", message: "Invalid request body" });
+  }
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+  const allData = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < allData.length; i++) {
+    if (allData[i][1] === data.uid) {
+      // UID is in the second column
+      sheet.deleteRow(i + 1);
+      return respond({ status: "deleted", uid: data.uid });
+    }
+  }
+  return respond({ status: "error", message: "UID not found" });
+}
+
+// ✅ Response Formatter
+function respond(payload) {
+  return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(
+    ContentService.MimeType.JSON
+  );
+}
+```
+
+This script handles four types of HTTP requests:
+
+1. **GET** - Fetches all data from the Google Sheet.
+2. **POST** - Adds new data to the Google Sheet.
+3. **PUT** - Updates existing data by matching `uid`.
+4. **DELETE** - Deletes data by matching `uid`.
+
+### **Step 4: Deploy as Web App**
+
+To make your script accessible as a web API, follow these steps:
+
+1. In the Apps Script editor, click **Deploy > Manage Deployments**.
+2. Click **New Deployment** and choose **Web app**.
+3. Under **Execution as**, select **Me**.
+4. Under **Who has access**, select **Anyone** (this makes the API accessible without authentication).
+5. Click **Deploy**. You'll be prompted to review permissions; grant the necessary access.
+6. Once deployed, you’ll receive a URL. This is your API endpoint, for example:
+   ```
+   https://script.google.com/macros/s/AKfycbwT4uAUBWw4Cxyz1234567890abcdefghijkl/exec
+   ```
+
+### **Step 5: Test the API Using Postman**
+
+Postman is a tool that makes it easy to test your API. Here's how you can use it:
+
+#### **Test GET Request (Fetch Data)**:
+
+1. Open Postman.
+2. Set the request type to `GET`.
+3. Enter the URL of your deployed API endpoint.
+4. Click **Send**. You should get a response with the data from your Google Sheet.
+
+#### **Test POST Request (Add New Data)**:
+
+1. Set the request type to `POST`.
+2. Enter the URL of your deployed API endpoint.
+3. Go to the **Body** tab in Postman and select **raw** and **JSON**.
+4. Enter the following JSON data:
+   ```json
+   {
+     "name": "Swapnil Kumar",
+     "uid": "22BCA10047",
+     "project_name": "CU Foodz"
+   }
+   ```
+5. Click **Send**. If successful, you should receive a response indicating that the data was added.
+
+#### **Test PUT Request (Update Data)**:
+
+1. Set the request type to `PUT`.
+2. Enter the URL of your deployed API endpoint.
+3. Go to the **Body** tab and enter the following JSON data:
+   ```json
+   {
+     "name": "Swapnil Kumar",
+     "uid": "22BCA10047",
+     "project_name": "Guitar Wala"
+   }
+   ```
+4. Click **Send**. The response should confirm the update.
+
+#### **Test DELETE Request (Delete Data)**:
+
+1. Set the request type to `DELETE`.
+2. Enter the URL of your deployed API endpoint.
+3. Go to the **Body** tab and enter the following JSON data:
+   ```json
+   {
+     "uid": "22BCA10032"
+   }
+   ```
+4. Click **Send**. The response should confirm that the data has been deleted.
+
+### **Step 6: Done!**
+
+Now you have a fully functional REST API backed by Google Sheets! You can interact with your sheet by sending `GET`, `POST`, `PUT`, and `DELETE` requests using Postman or any other HTTP client.
+
+---
+
+In this tutorial, we showed how to use Google Apps Script to create a simple REST API backed by a Google Sheet. You can now easily interact with this API to manage your data, whether it’s retrieving, adding, updating, or deleting records. This method is great for small projects and can serve as a foundation for more complex API systems.
