@@ -81,7 +81,13 @@ function createHeading(level: number) {
 }
 
 // Syntax highlighter component
-const codeBlock = ({ language, value }: { language: string; value: string }) => {
+const codeBlock = ({
+  language,
+  value,
+}: {
+  language: string;
+  value: string;
+}) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(value);
     alert("Code copied to clipboard!");
