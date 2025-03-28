@@ -120,7 +120,7 @@ export const DATA = {
     {
       company: "NY Softech India",
       href: "https://nysoftech.com/",
-      badges: ["Internship"],
+      badges: [],
       location: "Chandigarh, India - On-site",
       title: "Web Developer & Designer",
       logoUrl: "./work/nysoftech.jpeg",
