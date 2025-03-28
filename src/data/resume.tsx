@@ -118,6 +118,18 @@ export const DATA = {
 
   work: [
     {
+      company: "NY Softech India",
+      href: "https://nysoftech.com/",
+      badges: ["Internship"],
+      location: "Chandigarh, India - On-site",
+      title: "Web Developer & Designer",
+      logoUrl: "./work/nysoftech.jpeg",
+      start: "Feb 2025",
+      end: "Present",
+      description:
+        "Specializing in designing and developing responsive, user-centric websites with a focus on functionality, intuitive navigation, and optimized performance. Ensuring seamless user experiences across all devices, I work closely with clients to understand their objectives and translate their vision into high-quality, efficient, and accessible web solutions. From conceptualization to deployment, every project is executed with precision, attention to detail, and a commitment to excellence.",
+    },
+    {
       company: "Hacktoberfest",
       href: "https://www.holopin.io/@subhadipbhowmik",
       badges: [],
@@ -125,7 +137,7 @@ export const DATA = {
       title: "Project Maintainer",
       logoUrl: "./work/hactoberfest.jpg",
       start: "Oct 2024",
-      end: "Present",
+      end: "dec 2024",
       description:
         "As a maintainer for Hacktoberfest 2024, I promoted open-source collaboration by managing pull requests and providing feedback. I also developed BioBranch, a customizable platform that enables users to manage and showcase their social media handles and important links in one place",
     },
@@ -418,28 +430,7 @@ export const DATA = {
       image: "https://i.ibb.co/281x1mJ/images.jpg",
       win: "Best Data Hack",
       mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg",
-      links: [
-        {
-          title: "Devpost",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://devpost.com/software/my6footprint",
-        },
-        {
-          title: "ML",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/my6footprint-machine-learning",
-        },
-        {
-          title: "iOS",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/CarbonWallet",
-        },
-        {
-          title: "Server",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/wallet6-server",
-        },
-      ],
+      links: [],
     },
   ],
 } as const;
