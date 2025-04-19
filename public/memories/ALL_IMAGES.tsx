@@ -2,9 +2,21 @@
 export const ALL_IMAGES = [
   {
     imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1745088843/portfolio/memories/chail-shimla-tour-03_sxcmj5.jpg",
+    imageTitle: "Chail Shimla Tour",
+    imageDesc: "Travelled to Chail Shimla, Office Tour",
+  },
+  {
+    imageUrl:
       "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015610/portfolio/memories/shubhadip-bhowmik-in-gdg-2022.jpg",
     imageTitle: "GDSC 2022",
     imageDesc: "First time attended Google Developer Fest",
+  },
+  {
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1745088843/portfolio/memories/office-time_qvctxq.jpg",
+    imageTitle: "Office Time @NY Softech",
+    imageDesc: "Working at NY Softech, I.T Park - Chandigarh",
   },
   {
     imageUrl:

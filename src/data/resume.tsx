@@ -45,13 +45,13 @@ export const DATA = {
     "I have completed various certifications. I always keep myself updated with new certifications.",
   memories: "Good Memories",
   memoriesDesc:
-    "Preserving the past through memories, cherishing moments spent with loved ones, and capturing them forever.",
+    "Preserving the past in memories, cherishing moments with loved ones, and holding them forever.",
   blog: "I Write Blogs",
   blogDesc:
-    "Learning and teaching are my passions, and in my free time, I express myself through blogs.",
+    "Passionate about sharing ideas, I express myself through blogs in my free time.",
   proj: "Creating Projects",
   projDesc:
-    "I learn and teach through diverse projects, exploring ideas and creating solutions.",
+    "I learn by building diverse projects, exploring ideas and crafting bold solutions.",
   tutorials: "Sharing Tutorials",
   tutorialsDesc:
     "Sharing knowledge and skills through tutorials is my passion, and I enjoy creating them.",
