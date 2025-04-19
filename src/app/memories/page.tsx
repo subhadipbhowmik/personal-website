@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import BlurFade from '@/components/magicui/blur-fade';
-import { ALL_IMAGES } from '../../../public/memories/ALL_IMAGES';
-import BlurFadeText from '@/components/magicui/blur-fade-text';
+import React from "react";
+import Image from "next/image";
+import BlurFade from "@/components/magicui/blur-fade";
+import { ALL_IMAGES } from "../../../public/memories/ALL_IMAGES";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { DATA } from "@/data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -32,11 +32,11 @@ const Memories: React.FC = () => {
                   yOffset={8}
                   text={DATA.memories}
                 />
-                 <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.memoriesDesc}
-              />
+                <BlurFadeText
+                  className="max-w-[600px] md:text-xl"
+                  delay={BLUR_FADE_DELAY}
+                  text={DATA.memoriesDesc}
+                />
               </div>
               <BlurFade delay={BLUR_FADE_DELAY}>
                 <Avatar className="size-28 border">

@@ -1,17 +1,20 @@
 // IMAGE_DATA.tsx
 export const ALL_IMAGES = [
   {
-    imageUrl: "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015610/portfolio/memories/shubhadip-bhowmik-in-gdg-2022.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015610/portfolio/memories/shubhadip-bhowmik-in-gdg-2022.jpg",
     imageTitle: "GDSC 2022",
-    imageDesc: "First time attent Google Developer Fest",
+    imageDesc: "First time attended Google Developer Fest",
   },
   {
-    imageUrl: "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015819/portfolio/memories/shubhadip-bhowmik-in-web-dev-bootcamp-2023.png",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015819/portfolio/memories/shubhadip-bhowmik-in-web-dev-bootcamp-2023.png",
     imageTitle: "GDSC CU WEB DEV BOOTCAMP",
     imageDesc: "1st Position in GDSC Web Dev Bootcamp",
   },
   {
-    imageUrl: "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015613/portfolio/memories/shubhadip-bhowmik-in-mongodb-workshop.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015613/portfolio/memories/shubhadip-bhowmik-in-mongodb-workshop.jpg",
     imageTitle: "MongoDB Workshop 2024",
     imageDesc: "Attened MongoDB Workshop in Chandigarh University",
   },
@@ -46,7 +49,8 @@ export const ALL_IMAGES = [
     imageDesc: "Coding exercises during class, enhancing problem-solving.",
   },
   {
-    imageUrl: "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015640/portfolio/memories/shubhadip-bhowmik-boating-in-sukhna-lake.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015640/portfolio/memories/shubhadip-bhowmik-boating-in-sukhna-lake.jpg",
     imageTitle: "Sukhna Lake, Chandigarh",
     imageDesc: "Boat ride with classmates at scenic Sukhna Lake.",
   },
