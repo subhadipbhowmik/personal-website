@@ -202,10 +202,11 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+
       <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-2">
+        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pb-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="space-y-1">
+            <div className="space-y-3">
               <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                 Contact
               </div>
