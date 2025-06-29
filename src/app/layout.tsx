@@ -101,6 +101,11 @@ export default function RootLayout({
             gtag('config', 'G-918F6W2R3S');
           `}
         </Script>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4244742985577045"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
