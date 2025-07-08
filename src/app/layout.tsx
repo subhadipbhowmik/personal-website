@@ -71,7 +71,7 @@ function SidebarAd({
     <div
       className={`hidden xl:block fixed top-24 ${
         side === "left" ? "left-4" : "right-4"
-      } w-[160px] z-10`}
+      } w-[240px] z-10`}
     >
       <div className="sticky top-24">
         <ins
