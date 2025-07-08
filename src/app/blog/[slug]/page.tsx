@@ -110,10 +110,10 @@ export default async function Blog({
             },
             publisher: {
               "@type": "Organization",
-              name: "Your Blog Name",
+              name: "Shubhadip Bhowmik",
               logo: {
                 "@type": "ImageObject",
-                url: "https://your-site-url/logo.png", // Include the logo for the publisher
+                url: "https://shubhadipbhowmik.vercel.app/me.png",
               },
             },
             mainEntityOfPage: {
@@ -146,10 +146,6 @@ export default async function Blog({
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
 
-      {/* emoji reaction  */}
-      <div className="flex justify-center mt-4">
-        <div className="sharethis-inline-reaction-buttons"></div>
-      </div>
       {/* show all tags  */}
       <div className="mt-auto flex flex-col">
         {post.metadata.tags && post.metadata.tags.length > 0 && (

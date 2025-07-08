@@ -1,3 +1,4 @@
+// Assuming this is your globalComponents file, e.g., components/MDXComponents.tsx or lib/mdxComponents.ts
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

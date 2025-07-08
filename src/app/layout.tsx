@@ -57,6 +57,36 @@ export const metadata: Metadata = {
   },
 };
 
+// Ad Component
+function SidebarAd({
+  side,
+  adSlot,
+}: {
+  side: "left" | "right";
+  adSlot: string;
+}) {
+  if (process.env.NODE_ENV !== "production") return null;
+
+  return (
+    <div
+      className={`hidden xl:block fixed top-24 ${
+        side === "left" ? "left-4" : "right-4"
+      } w-[160px] z-10`}
+    >
+      <div className="sticky top-24">
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "240px", height: "600px" }}
+          data-ad-client="ca-pub-4244742985577045"
+          data-ad-slot={adSlot}
+          data-ad-format="vertical"
+          data-full-width-responsive="false"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -71,42 +101,62 @@ export default function RootLayout({
     >
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
         translate="no"
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
+            {/* Desktop Ad Layout */}
+            <div className="relative">
+              {/* Left Sidebar Ad */}
+              <SidebarAd side="left" adSlot="4858588709" />
+
+              {/* Main Content */}
+              <div className="max-w-2xl mx-auto py-12 sm:py-24 px-6 xl:px-8">
+                {children}
+                <Navbar />
+              </div>
+
+              {/* Right Sidebar Ad */}
+              <SidebarAd side="right" adSlot="4023185039" />
+            </div>
           </TooltipProvider>
         </ThemeProvider>
-        {/* ShareThis Script */}
-        <Script
-          src="https://platform-api.sharethis.com/js/sharethis.js#property=62756bd689a25900137c277f&product=inline-reaction-buttons"
-          strategy="afterInteractive"
-        />
-        {/* Google Analytics Scripts */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-918F6W2R3S"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-918F6W2R3S');
-          `}
-        </Script>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4244742985577045"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
+
+        {process.env.NODE_ENV === "production" && (
+          <>
+            {/* Google Analytics Script */}
+            <Script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-918F6W2R3S"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-918F6W2R3S');
+      `}
+            </Script>
+
+            {/* Google AdSense Script */}
+            <Script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4244742985577045"
+              strategy="afterInteractive"
+              crossOrigin="anonymous"
+            />
+            <Script id="adsense-init" strategy="afterInteractive">
+              {`
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
