@@ -2,6 +2,12 @@
 export const ALL_IMAGES = [
   {
     imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1757161772/portfolio/memories/image-46_hvusol.jpg",
+    imageTitle: "In Golden Temple",
+    imageDesc: "Visiting Golden Temple, a sacred place of worship.",
+  },
+  {
+    imageUrl:
       "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1745088843/portfolio/memories/chail-shimla-tour-03_sxcmj5.jpg",
     imageTitle: "Chail Shimla Tour",
     imageDesc: "Travelled to Chail Shimla, Office Tour",
@@ -31,32 +37,38 @@ export const ALL_IMAGES = [
     imageDesc: "Attened MongoDB Workshop in Chandigarh University",
   },
   {
-    imageUrl: "/memories/image-3.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015612/portfolio/memories/shubhadip-bhowmik-in-google-android-fest.jpg",
     imageTitle: "Google Android Fest 2023",
     imageDesc: "Participated in Chandigarh University Google Android Fest",
   },
   {
-    imageUrl: "/memories/image-4.jpeg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015610/portfolio/memories/shubhadip-bhowmik-in-google-cloud-study-jam.jpg",
     imageTitle: "Google Cloud Study Jam 2023",
     imageDesc: "Exploring cloud technologies at Google Cloud Study Jam.",
   },
   {
-    imageUrl: "/memories/image-5.jpeg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015612/portfolio/memories/shubhadip-bhowmik-in-gdsc-cu.jpg",
     imageTitle: "GDSC WEB DEV Bootcamp 2023",
     imageDesc: "Experience from Google Developer Club Web Dev Bootcamp.",
   },
   {
-    imageUrl: "/memories/image-6.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015612/portfolio/memories/shubhadip-bhowmik-first-holi-punjab.jpg",
     imageTitle: "First Holi in Punjab",
     imageDesc: "Celebrating Holi in Punjab with vibrant colors and joy.",
   },
   {
-    imageUrl: "/memories/image-7.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015619/portfolio/memories/shubhadip-bhowmik-in-code-hour-2024.jpg",
     imageTitle: "Code Hour CU 2024",
     imageDesc: "Collaborating on coding projects during Code Hour CU.",
   },
   {
-    imageUrl: "/memories/image-8.jpeg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015635/portfolio/memories/shubhadip-bhowmik-coding-in-class.jpg",
     imageTitle: "Coding Randomly in Class",
     imageDesc: "Coding exercises during class, enhancing problem-solving.",
   },
@@ -67,57 +79,68 @@ export const ALL_IMAGES = [
     imageDesc: "Boat ride with classmates at scenic Sukhna Lake.",
   },
   {
-    imageUrl: "/memories/image-10.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015638/portfolio/memories/shubhadip-bhowmik-with-sister.jpg",
     imageTitle: "Candid with Sister in Train",
     imageDesc: "Candid moment with my sister during a train journey.",
   },
   {
-    imageUrl: "/memories/image-11.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015640/portfolio/memories/shubhadip-bhowmik-in-google-devfest.jpg",
     imageTitle: "Google Devfest",
     imageDesc: "Attended Google Devfest, exploring new tech trends.",
   },
   {
-    imageUrl: "/memories/image-12.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015671/portfolio/memories/shubhadip-bhowmik-going-to-chandigarh.jpg",
     imageTitle: "Going to Chandigarh University in Train",
     imageDesc: "Train journey to Chandigarh University, full of hope.",
   },
   {
-    imageUrl: "/memories/image-13.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015718/portfolio/memories/shubhadip-bhowmik-in-rock-garden.jpg",
     imageTitle: "Rock Garden in Chandigarh",
     imageDesc: "Visited Rock Garden, marveling at the unique sculptures.",
   },
   {
-    imageUrl: "/memories/image-14.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015716/portfolio/memories/shubhadip-bhowmik-timepass-in-cu.jpg",
     imageTitle: "Time Pass in CU",
     imageDesc: "Spending leisurely moments on the CU campus.",
   },
   {
-    imageUrl: "/memories/image-15.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015723/portfolio/memories/shubhadip-bhowmik-waiting-for-train.jpg",
     imageTitle: "Waiting for the Train in the Track",
     imageDesc: "Patiently waiting on the track for my next journey.",
   },
   {
-    imageUrl: "/memories/image-16.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015717/portfolio/memories/shubhadip-bhowmik-in-zakir-hostel.jpg",
     imageTitle: "Zakir Hostel CU",
     imageDesc: "Memories of life at Zakir Hostel, Chandigarh University.",
   },
   {
-    imageUrl: "/memories/image-17.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015717/portfolio/memories/shubhadip-bhowmik-running-in-morning.jpg",
     imageTitle: "Running in the Winter Morning",
     imageDesc: "Morning jogs in the crisp winter air, refreshing!",
   },
   {
-    imageUrl: "/memories/image-18.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015716/portfolio/memories/shubhadip-bhowmik-in-sourav-birthday.jpg",
     imageTitle: "Sourav's Birthday",
     imageDesc: "Celebrating Sourav's birthday with joy and laughter.",
   },
   {
-    imageUrl: "/memories/image-19.jpeg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015718/portfolio/memories/shubhadip-bhowmik-in-diwali-punjab.jpg",
     imageTitle: "Diwali Time in Punjab",
     imageDesc: "Diwali festivities in Punjab, full of lights and colors.",
   },
   {
-    imageUrl: "/memories/image-20.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/shubhadipbhowmik/image/upload/v1729015719/portfolio/memories/shubhadip-bhowmik-school-friends.jpg",
     imageTitle: "School Dosti",
     imageDesc: "Cherishing school friendships that last a lifetime.",
   },
