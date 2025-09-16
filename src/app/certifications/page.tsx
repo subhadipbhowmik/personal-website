@@ -1,24 +1,24 @@
-import React from 'react';
-import Image from 'next/image';
-import BlurFade from '@/components/magicui/blur-fade';
-import BlurFadeText from '@/components/magicui/blur-fade-text';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
+import React from "react";
+import Image from "next/image";
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar, User } from 'lucide-react'; // Import icons
-import { ALL_COURSES } from '../../../public/certifications/ALL_COURSES';
-import { DATA } from '@/data/resume'; // Assuming you have this data available
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Calendar, User } from "lucide-react"; // Import icons
+import { ALL_COURSES } from "../../../public/certifications/ALL_COURSES";
+import { DATA } from "@/data/resume"; // Assuming you have this data available
 
 export const metadata = {
-  title: 'Certifications',
-  description: 'My Professional Achievements',
+  title: "Certifications",
+  description: "My Professional Achievements",
 };
 
 export const viewport = {
@@ -72,30 +72,43 @@ const Certifications = () => {
                   className="h-40 w-full object-contain rounded-md mt-2"
                 /> */}
 
-             <img src={course.certificate_image} alt={`Certificate for ${course.course_title}`} className='h-50 w-full rounded-md mt-2'/>
+                <img
+                  src={course.certificate_image}
+                  alt={`Certificate for ${course.course_title}`}
+                  className="h-[240px] w-full rounded-md mt-2"
+                />
 
                 {/* Organisation logo and course title in one row */}
                 <div className="flex items-center mt-4">
-                  <Avatar className="size-12 border"> {/* Reduced size */}
+                  <Avatar className="size-12 border">
+                    {" "}
+                    {/* Reduced size */}
                     <AvatarImage
                       alt={course.organisation_name}
                       src={course.organisation_logo}
                       className="rounded-full h-12 w-12" // Specify height and width
                     />
-                    <AvatarFallback>{course.organisation_name.charAt(0)}</AvatarFallback>
+                    <AvatarFallback>
+                      {course.organisation_name.charAt(0)}
+                    </AvatarFallback>
                   </Avatar>
-                  <CardTitle className="text-xl font-semibold ml-2">{course.course_title}</CardTitle> {/* Course title */}
+                  <CardTitle className="text-lg font-bold ml-2">
+                    {course.course_title}
+                  </CardTitle>{" "}
+                  {/* Course title */}
                 </div>
 
                 {/* Organisation name and issued date in the next row */}
                 <div className="flex justify-between w-full mt-2 text-gray-500">
                   <span className="flex items-center">
-                    <User className="h-4 w-4 mr-1" /> {/* Organization name icon */}
+                    <User className="h-4 w-4 mr-1" />{" "}
+                    {/* Organization name icon */}
                     <span>{course.organisation_name}</span>
                   </span>
                   <span className="flex items-center">
                     <Calendar className="h-4 w-4 mr-1" /> {/* Date icon */}
-                    <p className="text-sm">Issued: {course.issue_date}</p> {/* Issued date */}
+                    <p className="text-sm">Issued: {course.issue_date}</p>{" "}
+                    {/* Issued date */}
                   </span>
                 </div>
 
@@ -105,7 +118,9 @@ const Certifications = () => {
                     {course.skills_gained.map((skill, index) => (
                       <Badge
                         className={`px-2 py-1 rounded ${
-                          index % 2 === 0 ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'
+                          index % 2 === 0
+                            ? "bg-blue-500 text-white"
+                            : "bg-green-500 text-white"
                         }`}
                         key={skill}
                       >

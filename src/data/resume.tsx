@@ -203,7 +203,7 @@ export const DATA = {
     {
       school: "Changrachak Jagadish Smriti Vidyapith",
       href: "https://www.cjsvmoyna.org/",
-      degree: "Higher Secondary",
+      degree: "Higher Secondary Education",
       logoUrl: "./education/cjsv.png",
       start: "2020",
       end: "2022",
@@ -213,7 +213,7 @@ export const DATA = {
     {
       school: "Moyna Vivekananda Vidyamandir",
       href: "https://schools.org.in/purba-medinipur/19190103302/moyna-vivekananda-vidyamandir.html",
-      degree: "Higher Secondary",
+      degree: "Secondary Education",
       logoUrl: "./education/mvv.png",
       start: "2014",
       end: "2020",

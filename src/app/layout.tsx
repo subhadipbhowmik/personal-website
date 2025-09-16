@@ -113,8 +113,8 @@ export default function RootLayout({
               {/* Left Sidebar Ad */}
               <SidebarAd side="left" adSlot="4858588709" />
 
-              {/* Main Content */}
-              <div className="max-w-2xl mx-auto py-12 sm:py-24 px-6 xl:px-8">
+              {/* Main Content - Wider but respects ad space */}
+              <div className="max-w-3xl mx-auto py-12 sm:py-24 px-6 xl:px-8 xl:max-w-2xl 2xl:max-w-3xl">
                 {children}
                 <Navbar />
               </div>
