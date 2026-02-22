@@ -11,18 +11,21 @@ const nextConfig = withMDX({
   reactStrictMode: true,
   trailingSlash: true,
   images: {
-    domains: [
-      "github-readme-activity-graph.vercel.app",
-      "scaler.com",
-      "coursera.org",
-      "edx.org",
-      "udacity.com",
-      "pluralsight.com",
-      "linkedin.com",
-      "ibm.com",
-      "edx.com",
-      "media.dev.to",
-      "res.cloudinary.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "github-readme-activity-graph.vercel.app",
+      },
+      { protocol: "https", hostname: "scaler.com" },
+      { protocol: "https", hostname: "coursera.org" },
+      { protocol: "https", hostname: "edx.org" },
+      { protocol: "https", hostname: "udacity.com" },
+      { protocol: "https", hostname: "pluralsight.com" },
+      { protocol: "https", hostname: "linkedin.com" },
+      { protocol: "https", hostname: "ibm.com" },
+      { protocol: "https", hostname: "edx.com" },
+      { protocol: "https", hostname: "media.dev.to" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"], // Include MDX file extensions
