@@ -1,12 +1,102 @@
 import { Icons } from "@/components/icons";
 import {
   Code,
-  Contact,
   HomeIcon,
   Images,
   NotebookIcon,
   TvMinimalPlay,
 } from "lucide-react";
+
+export const PROFILES = [
+  {
+    id: "github",
+    platform: "GitHub",
+    handle: "@subhadipbhowmik",
+    about: "Open source projects, contributions & code",
+    icon: "/profile_icons/github.png",
+    link: "https://github.com/subhadipbhowmik",
+    btnText: "View GitHub",
+    accent: "from-gray-700 to-gray-900",
+    border: "border-gray-200 dark:border-gray-700",
+  },
+  {
+    id: "leetcode",
+    platform: "LeetCode",
+    handle: "shubhadip_bhowmik",
+    about: "DSA & problem solving",
+    icon: "/profile_icons/leetcoode.png",
+    link: "https://leetcode.com/u/shubhadip_bhowmik/",
+    btnText: "View LeetCode",
+    accent: "from-yellow-500 to-orange-500",
+    border: "border-yellow-200 dark:border-yellow-800",
+  },
+  {
+    id: "linkedin",
+    platform: "LinkedIn",
+    handle: "shubhadip-bhowmik",
+    about: "Professional experience & networking",
+    icon: "/profile_icons/linkedin.png",
+    link: "https://www.linkedin.com/in/shubhadip-bhowmik/",
+    btnText: "Connect",
+    accent: "from-blue-600 to-blue-800",
+    border: "border-blue-200 dark:border-blue-800",
+  },
+  {
+    id: "youtube",
+    platform: "YouTube",
+    handle: "@shubhadipbhowmik",
+    about: "Tutorials, walkthroughs & dev content",
+    icon: "/profile_icons/youtube.png",
+    link: "https://www.youtube.com/@shubhadipbhowmik",
+    btnText: "Subscribe",
+    accent: "from-red-500 to-red-700",
+    border: "border-red-200 dark:border-red-800",
+  },
+  {
+    id: "twitter",
+    platform: "X (Twitter)",
+    handle: "@myselfshubhadip",
+    about: "Thoughts on dev, open source & tech",
+    icon: "/profile_icons/x.svg",
+    link: "https://x.com/myselfshubhadip",
+    btnText: "Follow",
+    accent: "from-neutral-700 to-black",
+    border: "border-neutral-200 dark:border-neutral-700",
+  },
+  {
+    id: "freecodecamp",
+    platform: "freeCodeCamp",
+    handle: "shubhadip-bhowmik",
+    about: "Published technical author & articles",
+    icon: "/profile_icons/freecodecamp.svg",
+    link: "https://www.freecodecamp.org/news/author/shubhadip/",
+    btnText: "Read Articles",
+    accent: "from-green-600 to-emerald-700",
+    border: "border-green-200 dark:border-green-800",
+  },
+  {
+    id: "vsmarketplace",
+    platform: "VS Marketplace",
+    handle: "ShubhadipBhowmik",
+    about: "Published VS Code extensions",
+    icon: "/profile_icons/vs-code.png",
+    link: "https://marketplace.visualstudio.com/publishers/ShubhadipBhowmik",
+    btnText: "View Extensions",
+    accent: "from-blue-500 to-indigo-600",
+    border: "border-indigo-200 dark:border-indigo-800",
+  },
+  {
+    id: "devto",
+    platform: "Dev.to",
+    handle: "shubhadipbhowmik",
+    about: "Blog posts, tutorials & dev community",
+    icon: "/profile_icons/devdotto.svg",
+    link: "https://dev.to/shubhadipbhowmik",
+    btnText: "Read on Dev.to",
+    accent: "from-gray-800 to-gray-950",
+    border: "border-gray-200 dark:border-gray-700",
+  },
+];
 
 export const DATA = {
   name: "Shubhadip Bhowmik",
@@ -75,7 +165,6 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/tutorials", icon: TvMinimalPlay, label: "Tutorials" },
     { href: "/memories", icon: Images, label: "Memories" },
-    // { href: "/profiles", icon: Contact, label: "Profiles" },
   ],
   contact: {
     email: "shubhadipbhowmikdev@gmail.com",
@@ -91,7 +180,6 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/shubhadip-bhowmik/",
         icon: Icons.linkedin,
-
         navbar: false,
       },
       X: {
@@ -110,13 +198,24 @@ export const DATA = {
         name: "Send Email",
         url: "#",
         icon: Icons.email,
-
         navbar: false,
       },
     },
   },
 
   work: [
+    {
+      company: "Qurexo",
+      href: "https://qurexo.com/",
+      badges: [],
+      location: "India - Remote",
+      title: "Founder",
+      logoUrl: "./work/qurexo.png", // Update if you've renamed the logo file
+      start: "2026",
+      end: "Present",
+      description:
+        "Founded and leading Qurexo, a technology-driven digital agency focused on building scalable web solutions, SaaS products, and performance-driven marketing systems. Responsible for product strategy, development, and business growth, I work hands-on across full-stack development, UI/UX design, and automation. Delivered high-quality websites and digital solutions tailored to client needs while continuously experimenting with AI tools, modern frameworks, and efficient workflows to drive innovation and measurable results.",
+    },
     {
       company: "NY Softech India",
       href: "https://nysoftech.com/",
@@ -137,21 +236,9 @@ export const DATA = {
       title: "Project Maintainer",
       logoUrl: "./work/hactoberfest.jpg",
       start: "Oct 2024",
-      end: "dec 2024",
+      end: "Dec 2024",
       description:
         "As a maintainer for Hacktoberfest 2024, I promoted open-source collaboration by managing pull requests and providing feedback. I also developed BioBranch, a customizable platform that enables users to manage and showcase their social media handles and important links in one place",
-    },
-    {
-      company: "Codingport",
-      href: "https://codingport.in",
-      badges: [],
-      location: "Remote",
-      title: "Software Developer",
-      logoUrl: "./work/codingport.png",
-      start: "June 2024",
-      end: "Present",
-      description:
-        "Codingport provides programming articles related to Java, Data Structure, C/C++ and other popular programming languages with easy to follow tutorials and example programs. Programming tutorials with interview questions and preparation guide. NPTEL, LinkedIn Learning, Udemy Courses Assignment Answers.",
     },
     {
       company: "Next Drive India",
@@ -179,14 +266,14 @@ export const DATA = {
     },
     {
       company: "freeCodeCamp",
-      href: "https://nextdriveindia.com/",
+      href: "https://www.freecodecamp.org/news/author/shubhadip/",
       badges: [],
-      location: "Mohali, Chandigarh",
+      location: "Remote",
       title: "Contributing Author",
       logoUrl: "./work/freecodecamp.png",
       start: "Aug 2024",
       end: "Current",
-      description: "I write technical blog on different technical stacks.",
+      description: "I write technical blogs on different technical stacks.",
     },
   ],
   education: [
@@ -208,7 +295,7 @@ export const DATA = {
       start: "2020",
       end: "2022",
       description:
-        "It was the first time I was studying far away from my home. A new experiencein hostel life and new friends to get good exposure. Overall a good memory.",
+        "It was the first time I was studying far away from my home. A new experience in hostel life and new friends to get good exposure. Overall a good memory.",
     },
     {
       school: "Moyna Vivekananda Vidyamandir",
@@ -230,7 +317,7 @@ export const DATA = {
       active: true,
       featured: true,
       description:
-        "OmniTools: All-in-one toolkit for writing, SEO, profile fetching, and more. Boost your website’s performance with user-friendly tools, accessible anytime, anywhere.",
+        "OmniTools: All-in-one toolkit for writing, SEO, profile fetching, and more. Boost your website's performance with user-friendly tools, accessible anytime, anywhere.",
       technologies: ["HTML", "CSS", "JavaScript", "React.JS", "TailwindCSS"],
       links: [
         {
@@ -353,7 +440,7 @@ export const DATA = {
         "A customizable platform to manage and showcase all your social media profiles and important links in one place, simplifying your online presence.",
       technologies: [
         "JavaScript",
-        "REact",
+        "React",
         "Next.JS",
         "TailwindCSS",
         "Express",
