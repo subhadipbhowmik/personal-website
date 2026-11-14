@@ -76,7 +76,7 @@ const BookingSuccessContent = () => {
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Meeting Scheduled</h1>
             {email && (
               <p className="text-sm sm:text-base text-emerald-100">
-                We've sent an email with a calendar invitation to all participants.
+                We&apos;ve sent an email with a calendar invitation to all participants.
               </p>
             )}
           </motion.div>

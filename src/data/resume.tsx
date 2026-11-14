@@ -210,7 +210,7 @@ export const DATA = {
       badges: [],
       location: "India - Remote",
       title: "Founder",
-      logoUrl: "./work/qurexo.png", // Update if you've renamed the logo file
+      logoUrl: "/work/qurexo.png", // Update if you've renamed the logo file
       start: "2026",
       end: "Present",
       description:
@@ -222,7 +222,7 @@ export const DATA = {
       badges: [],
       location: "Chandigarh, India - On-site",
       title: "Web Developer & Designer",
-      logoUrl: "./work/nysoftech.jpeg",
+      logoUrl: "/work/nysoftech.jpeg",
       start: "Feb 2025",
       end: "Present",
       description:
@@ -234,7 +234,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Project Maintainer",
-      logoUrl: "./work/hactoberfest.jpg",
+      logoUrl: "/work/hactoberfest.jpg",
       start: "Oct 2024",
       end: "Dec 2024",
       description:
@@ -246,7 +246,7 @@ export const DATA = {
       badges: [],
       location: "Mohali, Chandigarh",
       title: "Software Engineer",
-      logoUrl: "./work/nextdriveindia.png",
+      logoUrl: "/work/nextdriveindia.png",
       start: "Nov 2023",
       end: "April 2024",
       description:
@@ -258,7 +258,7 @@ export const DATA = {
       badges: [],
       location: "Mohali, Chandigarh",
       title: "Open Source Developer",
-      logoUrl: "./work/girlscript.png",
+      logoUrl: "/work/girlscript.png",
       start: "May 2024",
       end: "August 2024",
       description:
@@ -270,7 +270,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Contributing Author",
-      logoUrl: "./work/freecodecamp.png",
+      logoUrl: "/work/freecodecamp.png",
       start: "Aug 2024",
       end: "Current",
       description: "I write technical blogs on different technical stacks.",
@@ -281,7 +281,7 @@ export const DATA = {
       school: "Chandigarh University",
       href: "https://www.cuchd.in/",
       degree: "B.C.A",
-      logoUrl: "./education/chandigarh-university.png",
+      logoUrl: "/education/chandigarh-university.png",
       start: "2022",
       end: "2025",
       description:
@@ -291,7 +291,7 @@ export const DATA = {
       school: "Changrachak Jagadish Smriti Vidyapith",
       href: "https://www.cjsvmoyna.org/",
       degree: "Higher Secondary Education",
-      logoUrl: "./education/cjsv.png",
+      logoUrl: "/education/cjsv.png",
       start: "2020",
       end: "2022",
       description:
@@ -301,7 +301,7 @@ export const DATA = {
       school: "Moyna Vivekananda Vidyamandir",
       href: "https://schools.org.in/purba-medinipur/19190103302/moyna-vivekananda-vidyamandir.html",
       degree: "Secondary Education",
-      logoUrl: "./education/mvv.png",
+      logoUrl: "/education/mvv.png",
       start: "2014",
       end: "2020",
       description:

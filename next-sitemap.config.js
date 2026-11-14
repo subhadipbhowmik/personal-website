@@ -1,42 +1,55 @@
-import { getServerSideSitemap } from 'next-sitemap';
-import { getBlogPosts } from './src/data/blog'; // Make sure the path is correct
+import fs from "fs";
+import path from "path";
 
 const additionalPaths = async () => {
-  const blogPosts = await getBlogPosts();
-  
-  // Map over blog posts to add individual blog URLs with their respective `lastmod`
-  const blogPostPaths = blogPosts.map(post => ({
-    loc: `/blog/${post.slug}`, // Assuming slug is the filename without .mdx
-    lastmod: post.metadata.publishedAt || new Date().toISOString(), // Use the actual published date
-  }));
+  let blogPostPaths = [];
+  try {
+    const contentDir = path.join(process.cwd(), "content");
+    const files = fs.readdirSync(contentDir);
+    blogPostPaths = files
+      .filter((file) => file.endsWith(".mdx"))
+      .map((file) => {
+        const slug = file.replace(/\.mdx$/, "");
+        const filePath = path.join(contentDir, file);
+        const stats = fs.statSync(filePath);
+        return {
+          loc: `/blog/${slug}`,
+          lastmod: stats.mtime.toISOString(),
+        };
+      });
+  } catch (e) {
+    console.error("Error reading blog posts for sitemap:", e);
+  }
 
   return [
     {
-      loc: '/blog',
+      loc: "/blog",
       lastmod: new Date().toISOString(),
     },
     {
-      loc: '/tutorials',
+      loc: "/tutorials",
       lastmod: new Date().toISOString(),
     },
     {
-      loc: '/memories',
+      loc: "/memories",
       lastmod: new Date().toISOString(),
     },
     {
-      loc: '/profiles',
+      loc: "/profiles",
       lastmod: new Date().toISOString(),
     },
     {
-      loc: '/certifications',
+      loc: "/certifications",
       lastmod: new Date().toISOString(),
     },
-    ...blogPostPaths, // Include all blog post URLs
+    ...blogPostPaths,
   ];
 };
 
-export default {
-  siteUrl: 'https://shubhadipbhowmik.vercel.app', // Use your website URL here
-  generateRobotsTxt: true, // Generates robots.txt as well
-  additionalPaths, // Include dynamic paths
+const sitemapConfig = {
+  siteUrl: "https://shubhadipbhowmik.vercel.app",
+  generateRobotsTxt: true,
+  additionalPaths,
 };
+
+export default sitemapConfig;
